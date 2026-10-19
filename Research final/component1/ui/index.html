@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Failure Detection Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css?v=2">
+  <style>
+    /* Configuration Page Styling */
+    .content-scroll.config-scroll {
+      background: #f8fafc !important;
+      padding: 1.5rem 1.75rem 2.5rem !important;
+    }
+    .top-header.config-hide-header {
+      display: none !important;
+    }
+    .config-page {
+      max-width: none !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1.15rem !important;
+    }
+    .config-header {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: flex-start !important;
+      justify-content: space-between !important;
+      gap: 1rem !important;
+    }
+    .config-title {
+      font-size: 1.55rem !important;
+      font-weight: 700 !important;
+      color: #1e293b !important;
+      letter-spacing: -0.01em !important;
+      margin-bottom: 0.25rem !important;
+    }
+    .config-subtitle {
+      color: #64748b !important;
+      font-size: 0.8rem !important;
+      max-width: 52rem !important;
+      line-height: 1.45 !important;
+    }
+    .config-subtitle code {
+      background: transparent !important;
+      padding: 0 !important;
+      border: none !important;
+      font-family: inherit !important;
+      color: #475569 !important;
+    }
+    .config-header-actions {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+    }
+    .config-btn {
+      border: 1px solid #d1d5db !important;
+      background: #ffffff !important;
+      color: #374151 !important;
+      border-radius: 6px !important;
+      padding: 0.35rem 0.85rem !important;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+      transition: all 0.15s ease !important;
+    }
+    .config-btn:hover {
+      background: #f9fafb !important;
+      border-color: #9ca3af !important;
+    }
+    .config-btn-primary {
+      background: #0ea5e9 !important;
+      border-color: #0ea5e9 !important;
+      color: #fff !important;
+      box-shadow: 0 1px 2px rgba(14, 165, 233, 0.2) !important;
+    }
+    .config-btn-primary:hover {
+      background: #0284c7 !important;
+      border-color: #0284c7 !important;
+    }
+    .config-stat-row {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 1rem !important;
+    }
+    .config-stat-card {
+      border-radius: 8px !important;
+      padding: 0.75rem 1.1rem !important;
+      border: 1px solid #e2e8f0 !important;
+      background: #ffffff !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.85rem !important;
+      min-height: 72px !important;
+      box-shadow: none !important;
+    }
+    .config-stat-card.configured {
+      border: none !important;
+      background: linear-gradient(135deg, #4f7cf6 0%, #3b82f6 100%) !important;
+      color: #fff !important;
+    }
+    .config-stat-card.discovered {
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+    }
+    .config-stat-card.reporting {
+      border: none !important;
+      background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
+      color: #fff !important;
+    }
+    .config-stat-icon {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+    .config-stat-card.configured .config-stat-icon,
+    .config-stat-card.reporting .config-stat-icon {
+      background: rgba(255, 255, 255, 0.22) !important;
+      color: #fff !important;
+    }
+    .config-stat-card.discovered .config-stat-icon {
+      background: #0ea5e9 !important;
+      color: #ffffff !important;
+    }
+    .config-stat-info {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.15rem !important;
+    }
+    .config-stat-label {
+      display: block !important;
+      font-size: 0.72rem !important;
+      color: #64748b !important;
+      font-weight: 600 !important;
+      line-height: 1 !important;
+    }
+    .config-stat-card.configured .config-stat-label,
+    .config-stat-card.reporting .config-stat-label {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+    .config-stat-value {
+      font-size: 1.55rem !important;
+      font-weight: 700 !important;
+      font-family: var(--font-family) !important;
+      color: #0f172a !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.02em !important;
+    }
+    .config-stat-card.configured .config-stat-value,
+    .config-stat-card.reporting .config-stat-value {
+      color: #fff !important;
+    }
+    .config-wait-banner {
+      padding: 0.65rem 1rem !important;
+      border-radius: 6px !important;
+      background: #f0f9ff !important;
+      border: 1px solid #bae6fd !important;
+      color: #0369a1 !important;
+      font-size: 0.8rem !important;
+      line-height: 1.45 !important;
+    }
+    .config-wait-banner strong {
+      color: #0284c7 !important;
+      font-weight: 700 !important;
+    }
+    .config-panel {
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-top: 3.5px solid #06b6d4 !important;
+      border-radius: 8px !important;
+      padding: 1.15rem 1.4rem !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+    }
+    .config-panel-head {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.45rem !important;
+      margin-bottom: 0.85rem !important;
+    }
+    .config-panel-head h2 {
+      font-size: 0.92rem !important;
+      font-weight: 700 !important;
+      color: #1e293b !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.45rem !important;
+    }
+    .config-panel-head h2 code {
+      background: transparent !important;
+      padding: 0 !important;
+      font-family: inherit !important;
+      font-size: inherit !important;
+      font-weight: 700 !important;
+      color: #1e293b !important;
+    }
+    .config-live-dot {
+      width: 8px !important;
+      height: 8px !important;
+      border-radius: 50% !important;
+      background: #10b981 !important;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+      display: inline-block !important;
+      flex-shrink: 0 !important;
+    }
+    .config-discovery-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 0.65rem !important;
+    }
+    .config-service-card {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 0.6rem !important;
+      padding: 0.55rem 0.8rem !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 6px !important;
+      background: #ffffff !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+      transition: all 0.15s ease !important;
+    }
+    .config-service-card:hover {
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04) !important;
+    }
+    .config-service-icon {
+      width: 26px !important;
+      height: 26px !important;
+      border-radius: 4px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+      overflow: hidden !important;
+    }
+    .config-platform-img {
+      width: 22px !important;
+      height: 22px !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+    .config-platform-fallback {
+      width: 22px !important;
+      height: 22px !important;
+      border-radius: 4px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 0.65rem !important;
+      font-weight: 800 !important;
+      color: #fff !important;
+      font-family: var(--font-family) !important;
+    }
+    .platform-python { background: #3776ab !important; }
+    .platform-node { background: #339933 !important; }
+    .platform-ruby { background: #cc0000 !important; }
+    .platform-go { background: #00add8 !important; }
+    .platform-php { background: #777bb4 !important; }
+    .platform-azure { background: #0078d4 !important; }
+    .platform-render { background: #0b192c !important; }
+    .platform-railway { background: #0b0d0e !important; }
+    .platform-generic { background: #64748b !important; }
+    .config-service-body {
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+    .config-service-name {
+      font-size: 0.78rem !important;
+      font-weight: 700 !important;
+      color: #0f172a !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      line-height: 1.2 !important;
+    }
+    .config-service-status {
+      font-size: 0.67rem !important;
+      color: #64748b !important;
+      margin-top: 0.1rem !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      line-height: 1.2 !important;
+    }
+    .config-service-dot {
+      width: 7px !important;
+      height: 7px !important;
+      border-radius: 50% !important;
+      flex-shrink: 0 !important;
+    }
+    .config-service-dot.ok {
+      background: #10b981 !important;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.18) !important;
+    }
+    .config-service-dot.wait {
+      background: #f59e0b !important;
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.18) !important;
+    }
+    .config-panel-footer {
+      margin-top: 0.85rem !important;
+      padding-top: 0 !important;
+      border-top: none !important;
+      font-size: 0.74rem !important;
+      color: #64748b !important;
+      line-height: 1.5 !important;
+    }
+    .config-json-view {
+      margin: 0 !important;
+      padding: 1.15rem 1.4rem !important;
+      border-radius: 6px !important;
+      background: #0f1c2e !important;
+      color: #e2e8f0 !important;
+      font-family: Consolas, 'JetBrains Mono', 'Fira Code', monospace !important;
+      font-size: 0.78rem !important;
+      line-height: 1.55 !important;
+      overflow-y: auto !important;
+      max-height: 480px !important;
+      white-space: pre !important;
+      border: 1px solid #1e293b !important;
+    }
+    .config-connection-grid,
+    .config-connection-fields {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1.5rem !important;
+    }
+    .config-connection-col {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .config-connection-col label,
+    .config-connection-fields label {
+      display: block !important;
+      font-weight: 700 !important;
+      font-size: 0.8rem !important;
+      color: #1e293b !important;
+      margin-bottom: 0.25rem !important;
+    }
+    .config-field-hint {
+      font-size: 0.72rem !important;
+      color: #94a3b8 !important;
+      margin-bottom: 0.65rem !important;
+    }
+    .config-field-spacer {
+      height: 0.72rem !important;
+      margin-bottom: 0.65rem !important;
+    }
+    .config-connection-col input,
+    .config-connection-fields input {
+      width: 100% !important;
+      max-width: 520px !important;
+      padding: 0.55rem 1.25rem !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 9999px !important;
+      font-size: 0.82rem !important;
+      font-family: var(--font-family) !important;
+      background: #ffffff !important;
+      color: #1e293b !important;
+      outline: none !important;
+    }
+    .config-apply-btn {
+      background: #0ea5e9 !important;
+      border: none !important;
+      color: #ffffff !important;
+      border-radius: 9999px !important;
+      padding: 0.45rem 1.6rem !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      align-self: flex-start !important;
+      margin-top: 0.85rem !important;
+    }
+    @media (max-width: 1200px) {
+      .config-discovery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    }
+    @media (max-width: 900px) {
+      .config-discovery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    }
+    @media (max-width: 768px) {
+      .config-stat-row { grid-template-columns: 1fr !important; }
+      .config-connection-grid, .config-connection-fields { grid-template-columns: 1fr !important; }
+      .config-discovery-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active" onclick="switchTab('overview')" title="Overview">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </a>
+        <a class="nav-item" onclick="switchTab('memory')" title="Memory Usage">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>
+        </a>
+        <a class="nav-item" onclick="switchTab('alerts')" title="Alerts">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </a>
+        <a class="nav-item" onclick="switchTab('windows')" title="Windows">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        </a>
+        <a class="nav-item" onclick="switchTab('configuration')" title="Configuration">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-status">
+          <div id="statusDot" class="status-dot"></div>
+          <span id="statusText">Connecting...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="main-content">
+
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-search">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search services, logs..." class="search-input" id="searchInput" oninput="filterLogs()">
+        </div>
+        <div class="header-actions">
+          <button class="header-icon-btn" title="Refresh" onclick="fetchBackendState()">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          </button>
+          <button class="header-icon-btn" title="Azure service settings" onclick="openAzureSettings()">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+          <button id="btnSimulate" class="btn-primary" onclick="toggleSimulation()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Simulation: <span id="simState">OFF</span>
+          </button>
+        </div>
+      </header>
+
+      <div id="azureSettingsModal" class="settings-modal" hidden>
+        <div class="settings-dialog" role="dialog" aria-modal="true" aria-labelledby="azureSettingsTitle">
+          <div class="settings-dialog-header">
+            <div>
+              <h2 id="azureSettingsTitle">Connect an Azure microservice</h2>
+              <p>Add the public URL of a sidecar-enabled Azure Container App.</p>
+            </div>
+            <button class="settings-close" type="button" onclick="closeAzureSettings()" aria-label="Close">×</button>
+          </div>
+          <form id="azureServiceForm" onsubmit="saveAzureService(event)">
+            <label for="azureServiceName">Service name</label>
+            <input id="azureServiceName" name="name" type="text" placeholder="python-azure" required maxlength="64">
+            <label for="azureServiceUrl">Azure service URL</label>
+            <input id="azureServiceUrl" name="base_url" type="url" placeholder="https://your-app.azurecontainerapps.io" required>
+            <label class="settings-checkbox">
+              <input id="azureServiceEnabled" name="enabled" type="checkbox" checked>
+              Enable this service
+            </label>
+            <p class="settings-help">The service will be saved to <code>services_config.json</code> dynamically and monitored by Component 1.</p>
+            <div id="azureSettingsMessage" class="settings-message" role="status"></div>
+            <div class="settings-actions">
+              <button class="action-btn" type="button" onclick="closeAzureSettings()">Cancel</button>
+              <button class="action-btn primary" type="submit">Verify and add service</button>
+            </div>
+          </form>
+          <div>
+            <h3>Configured services</h3>
+            <div id="azureServicesList" class="azure-services-list">Loading...</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-scroll">
+
+        <!-- ===== TAB: OVERVIEW ===== -->
+        <div class="tab-pane active" id="paneOverview">
+          <div class="overview-grid">
+
+            <!-- Left Column -->
+            <div class="overview-left">
+              <!-- System Status Card -->
+              <div class="status-card">
+                <div class="status-header">
+                  <h3>System Status</h3>
+                  <span class="status-badge healthy">HEALTHY</span>
+                </div>
+                <div class="status-row">
+                  <span class="status-label">System:</span>
+                  <span class="status-value" id="systemStatus">N/A</span>
+                </div>
+                <div class="status-row">
+                  <span class="status-label">Memory:</span>
+                  <span class="status-value" id="memoryStatus">N/A</span>
+                </div>
+                <div class="status-row">
+                  <span class="status-label">Last Update:</span>
+                  <span class="status-value" id="lastUpdate">N/A</span>
+                </div>
+              </div>
+
+              <!-- Key Metrics Card -->
+              <div class="metrics-card">
+                <h3 class="card-heading">Key Metrics</h3>
+                <div class="metric-item">
+                  <div class="metric-icon blue">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>
+                  </div>
+                  <div class="metric-info">
+                    <div class="metric-label">Avg Memory</div>
+                    <div class="metric-value" id="statAvgMemory">N/A</div>
+                  </div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-icon purple">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  </div>
+                  <div class="metric-info">
+                    <div class="metric-label">Heap Memory</div>
+                    <div class="metric-value" id="statHeapMemory">N/A</div>
+                  </div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-icon red">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
+                  <div class="metric-info">
+                    <div class="metric-label">Memory Alerts</div>
+                    <div class="metric-value" id="statMemoryAlerts">0</div>
+                  </div>
+                </div>
+                <div class="metric-item">
+                  <div class="metric-icon teal">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                  </div>
+                  <div class="metric-info">
+                    <div class="metric-label">GC Count</div>
+                    <div class="metric-value" id="statGCCount">N/A</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service Health Card -->
+              <div class="health-card">
+                <h3 class="card-heading">Service Health</h3>
+                <div class="health-summary">
+                  <div class="health-item">
+                    <span class="health-dot failed"></span>
+                    <span class="health-label">FAILED</span>
+                    <span class="health-count" id="failedCount">0</span>
+                  </div>
+                  <div class="health-item">
+                    <span class="health-dot healthy"></span>
+                    <span class="health-label">HEALTHY</span>
+                    <span class="health-count" id="healthyCount">0</span>
+                  </div>
+                </div>
+                <div class="health-bar">
+                  <div class="health-bar-fill" id="healthBar"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center Column -->
+            <div class="overview-center">
+              <!-- Hero Banner -->
+              <div class="hero-banner">
+                <div class="hero-content">
+                  <h2>Memory Failure Detection</h2>
+                  <p>Live monitoring of memory usage, heap allocation, and garbage collection across all microservices</p>
+                  <div class="hero-stats">
+                    <div class="hero-stat">
+                      <span class="hero-stat-value" id="heroServices">0</span>
+                      <span class="hero-stat-label">Services</span>
+                    </div>
+                    <div class="hero-stat">
+                      <span class="hero-stat-value" id="heroAlerts">0</span>
+                      <span class="hero-stat-label">Alerts</span>
+                    </div>
+                    <div class="hero-stat">
+                      <span class="hero-stat-value" id="heroUptime">0m</span>
+                      <span class="hero-stat-label">Uptime</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-visual">
+                  <div class="hero-chart-container">
+                    <canvas id="chartHeroMemory"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Memory Usage Trend -->
+              <div class="trend-section">
+                <div class="trend-header">
+                  <h3>Memory Usage Trend</h3>
+                  <div class="trend-controls">
+                    <label>Service:</label>
+                    <select id="serviceSelect" class="input-select" onchange="renderStageData()">
+                      <option value="ALL">All Services</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="chart-container-large">
+                  <canvas id="chartMemoryTrend"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="overview-right">
+              <!-- Quick Actions -->
+              <div class="action-card">
+                <h3 class="card-heading">Quick Actions</h3>
+                <button class="action-btn primary" onclick="toggleSimulation()">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  Toggle Simulation
+                </button>
+                <button class="action-btn" onclick="fetchBackendState()">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                  Refresh Data
+                </button>
+                <button class="action-btn" onclick="exportData()">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Export JSON
+                </button>
+              </div>
+
+              <!-- Active Services -->
+              <div class="services-card">
+                <h3 class="card-heading">Active Services</h3>
+                <div id="servicesList" class="services-list">
+                  <div class="empty-cell" style="padding:1rem;">Waiting for active services...</div>
+                </div>
+              </div>
+
+              <!-- Memory Health -->
+              <div class="memory-health-card">
+                <h3 class="card-heading">Memory Health</h3>
+                <div class="health-item">
+                  <span class="health-label">Ingestion</span>
+                  <span class="health-value good" id="healthIngestion">Connecting...</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">Drain3 Parser</span>
+                  <span class="health-value good" id="healthDrain3">N/A</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">Classifier</span>
+                  <span class="health-value good" id="healthClassifier">N/A</span>
+                </div>
+                <div class="health-item">
+                  <span class="health-label">Window Export</span>
+                  <span class="health-value good" id="healthExport">N/A</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ===== TAB: MEMORY ===== -->
+        <div class="tab-pane" id="paneMemory">
+          <div class="detail-grid">
+            <div class="card">
+              <div class="card-title">
+                <span>Memory Usage by Service</span>
+                <span class="card-badge">Live</span>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Service</th>
+                      <th>RAM %</th>
+                      <th>Heap (MB)</th>
+                      <th>GC Count</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableMemoryBody">
+                    <tr><td colspan="5" class="empty-cell">No memory data available</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Heap Memory Distribution</div>
+              <div class="chart-container">
+                <canvas id="chartHeapMemory"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: ALERTS ===== -->
+        <div class="tab-pane" id="paneAlerts">
+          <div class="card">
+            <div class="card-title">
+              <span>Memory Leak & Pressure Alerts</span>
+              <span class="card-badge" id="alertCount">0 Active</span>
+            </div>
+            <div id="alertsDetailList" class="alerts-list">
+              <div class="empty-cell">No memory alerts detected</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Detection Explanations</div>
+            <div id="explanationsList" class="explanations-list">
+              <div class="empty-cell">No explanations available</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: CONFIGURATION ===== -->
+        <div class="tab-pane" id="paneConfiguration">
+          <div class="config-page">
+            <div class="config-header">
+              <div>
+                <h1 class="config-title">Configuration</h1>
+                <p class="config-subtitle">This is the exact content of <code>services_config.json</code> — every service added on the Services tab is written here automatically.</p>
+              </div>
+              <div class="config-header-actions">
+                <button type="button" class="config-btn" onclick="reloadConfiguration()">Reload</button>
+                <button type="button" class="config-btn" onclick="copyConfigJson()">Copy JSON</button>
+                <button type="button" class="config-btn" onclick="downloadConfigJson()">Download</button>
+              </div>
+            </div>
+
+            <div class="config-stat-row">
+              <div class="config-stat-card configured">
+                <div class="config-stat-icon blue">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><line x1="6" y1="6.5" x2="6.01" y2="6.5"/><line x1="6" y1="17.5" x2="6.01" y2="17.5"/></svg>
+                </div>
+                <div class="config-stat-info">
+                  <span class="config-stat-label">Configured</span>
+                  <span class="config-stat-value" id="configStatConfigured">0</span>
+                </div>
+              </div>
+              <div class="config-stat-card discovered">
+                <div class="config-stat-icon teal">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5"/></svg>
+                </div>
+                <div class="config-stat-info">
+                  <span class="config-stat-label">Discovered</span>
+                  <span class="config-stat-value" id="configStatDiscovered">0</span>
+                </div>
+              </div>
+              <div class="config-stat-card reporting">
+                <div class="config-stat-icon green">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 6c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0"/><path d="M4 12c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0"/><path d="M4 18c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0"/></svg>
+                </div>
+                <div class="config-stat-info">
+                  <span class="config-stat-label">Reporting</span>
+                  <span class="config-stat-value" id="configStatReporting">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="configWaitBanner" class="config-wait-banner" hidden></div>
+
+            <section class="config-panel">
+              <div class="config-panel-head">
+                <h2>Discovery state</h2>
+                <span id="configDiscoveryDot" class="config-live-dot" title="Live"></span>
+              </div>
+              <div id="configDiscoveryGrid" class="config-discovery-grid">
+                <p class="config-empty">Loading services…</p>
+              </div>
+              <p id="configDiscoveryFooter" class="config-panel-footer">File: services_config.json</p>
+            </section>
+
+            <section class="config-panel">
+              <div class="config-panel-head">
+                <h2><code>services_config.json</code> (live)</h2>
+                <span class="config-live-dot" title="Live"></span>
+              </div>
+              <pre id="configJsonLive" class="config-json-view"><code>{}</code></pre>
+            </section>
+
+            <section class="config-panel config-connection">
+              <div class="config-panel-head">
+                <h2>Connection</h2>
+                <span id="configConnectionDot" class="config-live-dot" title="Connected"></span>
+              </div>
+              <div class="config-connection-grid">
+                <div class="config-connection-col">
+                  <label for="configBackendUrl">Backend URL</label>
+                  <p class="config-field-hint">(same origin by default — the server that served this page)</p>
+                  <input id="configBackendUrl" type="url" autocomplete="off" placeholder="http://localhost:8081">
+                  <button type="button" class="config-btn config-btn-primary config-apply-btn" onclick="applyConnectionSettings()">Apply</button>
+                </div>
+                <div class="config-connection-col">
+                  <label for="configRefreshMs">Refresh interval (ms)</label>
+                  <div class="config-field-spacer"></div>
+                  <input id="configRefreshMs" type="number" min="500" step="500" value="1000">
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- ===== TAB: WINDOWS ===== -->
+        <div class="tab-pane" id="paneWindows">
+          <div class="detail-grid">
+            <div class="card">
+              <div class="card-title">Sliding Window Analysis</div>
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Window</th>
+                      <th>Service</th>
+                      <th>Mem Slope</th>
+                      <th>Variance</th>
+                      <th>Label</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableWindowsBody">
+                    <tr><td colspan="5" class="empty-cell">No window data</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Failure Trend (5min)</div>
+              <div class="chart-container">
+                <canvas id="chartTrend"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="app.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+services:
+  microservice-01:
+    build:
+      context: ./microservice-01
+      dockerfile: Dockerfile
+    container_name: microservice-01
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - SERVICE_NAME=service-node-01
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-02:
+    build:
+      context: ./microservice-02
+      dockerfile: Dockerfile
+    container_name: microservice-02
+    ports:
+      - "3002:3002"
+    environment:
+      - PORT=3002
+      - SERVICE_NAME=service-python-02
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-03:
+    build:
+      context: ./microservice-03
+      dockerfile: Dockerfile
+    container_name: microservice-03
+    ports:
+      - "3003:3003"
+    environment:
+      - SERVER_PORT=3003
+      - SERVICE_NAME=service-java-03
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-04:
+    build:
+      context: ./microservice-04
+      dockerfile: Dockerfile
+    container_name: microservice-04
+    ports:
+      - "3004:3004"
+    environment:
+      - PORT=3004
+      - SERVICE_NAME=service-go-04
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-05:
+    build:
+      context: ./microservice-05
+      dockerfile: Dockerfile
+    container_name: microservice-05
+    ports:
+      - "3005:3005"
+    environment:
+      - PORT=3005
+      - SERVICE_NAME=service-ruby-05
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-06:
+    build:
+      context: ./microservice-06
+      dockerfile: Dockerfile
+    container_name: microservice-06
+    ports:
+      - "3006:3006"
+    environment:
+      - PORT=3006
+      - SERVICE_NAME=service-php-06
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-07:
+    build:
+      context: ./microservice-07
+      dockerfile: Dockerfile
+    container_name: microservice-07
+    ports:
+      - "3007:3007"
+    environment:
+      - PORT=3007
+      - SERVICE_NAME=service-csharp-07
+      - ASPNETCORE_URLS=http://0.0.0.0:3007
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-08:
+    build:
+      context: ./microservice-08
+      dockerfile: Dockerfile
+    container_name: microservice-08
+    ports:
+      - "3008:3008"
+    environment:
+      - PORT=3008
+      - SERVICE_NAME=service-rust-08
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-09:
+    build:
+      context: ./microservice-09
+      dockerfile: Dockerfile
+    container_name: microservice-09
+    ports:
+      - "3009:3009"
+    environment:
+      - PORT=3009
+      - SERVICE_NAME=service-kotlin-09
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-10:
+    build:
+      context: ./microservice-10
+      dockerfile: Dockerfile
+    container_name: microservice-10
+    ports:
+      - "3010:9000"
+    environment:
+      - SERVICE_NAME=service-scala-10
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-16:
+    build:
+      context: ./microservice-16
+      dockerfile: Dockerfile
+    container_name: microservice-16
+    ports:
+      - "3016:3016"
+    environment:
+      - PORT=3016
+      - SERVICE_NAME=service-julia-16
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-17:
+    build:
+      context: ./microservice-17
+      dockerfile: Dockerfile
+    container_name: microservice-17
+    ports:
+      - "3017:3017"
+    environment:
+      - PORT=3017
+      - SERVICE_NAME=service-lua-17
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-18:
+    build:
+      context: ./microservice-18
+      dockerfile: Dockerfile
+    container_name: microservice-18
+    ports:
+      - "3018:3018"
+    environment:
+      - PORT=3018
+      - SERVICE_NAME=service-perl-18
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-19:
+    build:
+      context: ./microservice-19
+      dockerfile: Dockerfile
+    container_name: microservice-19
+    ports:
+      - "3019:3019"
+    environment:
+      - PORT=3019
+      - SERVICE_NAME=service-nestjs-19
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  microservice-20:
+    build:
+      context: ./microservice-20
+      dockerfile: Dockerfile
+    container_name: microservice-20
+    ports:
+      - "3020:3020"
+    environment:
+      - PORT=3020
+      - SERVICE_NAME=service-swift-20
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+networks:
+  microservices-net:
+    driver: bridge

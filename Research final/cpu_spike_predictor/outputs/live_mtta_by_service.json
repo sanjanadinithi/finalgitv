@@ -1,0 +1,216 @@
+{
+  "generated_at": "2026-10-18T18:00:07.144240",
+  "source": "final_research_dataset.csv",
+  "window_minutes": 20,
+  "services": {
+    "srv-da5trtu417fc738m1kk0": {
+      "service": "srv-da5trtu417fc738m1kk0",
+      "total_events": 176,
+      "anticipated_events": 156,
+      "anticipation_rate_pct": 88.6,
+      "mean_mtta_seconds": 821.2,
+      "mean_mtta_minutes": 13.7,
+      "min_mtta_seconds": 10.7,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~13.7m early"
+    },
+    "srv-da5tl53m8hqs73ds5urg": {
+      "service": "srv-da5tl53m8hqs73ds5urg",
+      "total_events": 169,
+      "anticipated_events": 143,
+      "anticipation_rate_pct": 84.6,
+      "mean_mtta_seconds": 750.4,
+      "mean_mtta_minutes": 12.5,
+      "min_mtta_seconds": 4.0,
+      "max_mtta_seconds": 1200.0,
+      "formatted_lead_time": "~12.5m early"
+    },
+    "microservice-03-azure": {
+      "service": "microservice-03-azure",
+      "total_events": 164,
+      "anticipated_events": 143,
+      "anticipation_rate_pct": 87.2,
+      "mean_mtta_seconds": 787.1,
+      "mean_mtta_minutes": 13.1,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1200.0,
+      "formatted_lead_time": "~13.1m early"
+    },
+    "microservice-04-azure": {
+      "service": "microservice-04-azure",
+      "total_events": 162,
+      "anticipated_events": 154,
+      "anticipation_rate_pct": 95.1,
+      "mean_mtta_seconds": 797.1,
+      "mean_mtta_minutes": 13.3,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~13.3m early"
+    },
+    "microservice-07-azure": {
+      "service": "microservice-07-azure",
+      "total_events": 170,
+      "anticipated_events": 148,
+      "anticipation_rate_pct": 87.1,
+      "mean_mtta_seconds": 793.8,
+      "mean_mtta_minutes": 13.2,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~13.2m early"
+    },
+    "microservice-06-azure": {
+      "service": "microservice-06-azure",
+      "total_events": 220,
+      "anticipated_events": 192,
+      "anticipation_rate_pct": 87.3,
+      "mean_mtta_seconds": 773.2,
+      "mean_mtta_minutes": 12.9,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1199.8,
+      "formatted_lead_time": "~12.9m early"
+    },
+    "microservicesset": {
+      "service": "microservicesset",
+      "total_events": 169,
+      "anticipated_events": 147,
+      "anticipation_rate_pct": 87.0,
+      "mean_mtta_seconds": 776.7,
+      "mean_mtta_minutes": 12.9,
+      "min_mtta_seconds": 1.8,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~12.9m early"
+    },
+    "microservice-20": {
+      "service": "microservice-20",
+      "total_events": 149,
+      "anticipated_events": 131,
+      "anticipation_rate_pct": 87.9,
+      "mean_mtta_seconds": 769.0,
+      "mean_mtta_minutes": 12.8,
+      "min_mtta_seconds": 10.7,
+      "max_mtta_seconds": 1199.8,
+      "formatted_lead_time": "~12.8m early"
+    },
+    "microservice-19": {
+      "service": "microservice-19",
+      "total_events": 132,
+      "anticipated_events": 111,
+      "anticipation_rate_pct": 84.1,
+      "mean_mtta_seconds": 801.7,
+      "mean_mtta_minutes": 13.4,
+      "min_mtta_seconds": 1.0,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~13.4m early"
+    },
+    "microservice-18": {
+      "service": "microservice-18",
+      "total_events": 156,
+      "anticipated_events": 133,
+      "anticipation_rate_pct": 85.3,
+      "mean_mtta_seconds": 819.1,
+      "mean_mtta_minutes": 13.7,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~13.7m early"
+    },
+    "microservice-12-azure": {
+      "service": "microservice-12-azure",
+      "total_events": 150,
+      "anticipated_events": 132,
+      "anticipation_rate_pct": 88.0,
+      "mean_mtta_seconds": 823.1,
+      "mean_mtta_minutes": 13.7,
+      "min_mtta_seconds": 29.0,
+      "max_mtta_seconds": 1199.8,
+      "formatted_lead_time": "~13.7m early"
+    },
+    "microservice-08-azure": {
+      "service": "microservice-08-azure",
+      "total_events": 238,
+      "anticipated_events": 190,
+      "anticipation_rate_pct": 79.8,
+      "mean_mtta_seconds": 817.3,
+      "mean_mtta_minutes": 13.6,
+      "min_mtta_seconds": 18.2,
+      "max_mtta_seconds": 1200.0,
+      "formatted_lead_time": "~13.6m early"
+    },
+    "127": {
+      "service": "127",
+      "total_events": 1,
+      "anticipated_events": 0,
+      "anticipation_rate_pct": 0.0,
+      "mean_mtta_seconds": null,
+      "mean_mtta_minutes": null,
+      "min_mtta_seconds": null,
+      "max_mtta_seconds": null,
+      "formatted_lead_time": null
+    },
+    "microservice-12": {
+      "service": "microservice-12",
+      "total_events": 33,
+      "anticipated_events": 22,
+      "anticipation_rate_pct": 66.7,
+      "mean_mtta_seconds": 587.0,
+      "mean_mtta_minutes": 9.8,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~9.8m early"
+    },
+    "microservice-11": {
+      "service": "microservice-11",
+      "total_events": 29,
+      "anticipated_events": 21,
+      "anticipation_rate_pct": 72.4,
+      "mean_mtta_seconds": 663.0,
+      "mean_mtta_minutes": 11.1,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1199.4,
+      "formatted_lead_time": "~11.1m early"
+    },
+    "zz-gw-diag": {
+      "service": "zz-gw-diag",
+      "total_events": 15,
+      "anticipated_events": 2,
+      "anticipation_rate_pct": 13.3,
+      "mean_mtta_seconds": 1024.4,
+      "mean_mtta_minutes": 17.1,
+      "min_mtta_seconds": 928.4,
+      "max_mtta_seconds": 1120.5,
+      "formatted_lead_time": "~17.1m early"
+    },
+    "zz-live-6176": {
+      "service": "zz-live-6176",
+      "total_events": 20,
+      "anticipated_events": 2,
+      "anticipation_rate_pct": 10.0,
+      "mean_mtta_seconds": 1024.4,
+      "mean_mtta_minutes": 17.1,
+      "min_mtta_seconds": 928.4,
+      "max_mtta_seconds": 1120.5,
+      "formatted_lead_time": "~17.1m early"
+    },
+    "microservice-09": {
+      "service": "microservice-09",
+      "total_events": 55,
+      "anticipated_events": 44,
+      "anticipation_rate_pct": 80.0,
+      "mean_mtta_seconds": 718.4,
+      "mean_mtta_minutes": 12.0,
+      "min_mtta_seconds": 29.8,
+      "max_mtta_seconds": 1199.8,
+      "formatted_lead_time": "~12.0m early"
+    },
+    "microservice-21": {
+      "service": "microservice-21",
+      "total_events": 31,
+      "anticipated_events": 22,
+      "anticipation_rate_pct": 71.0,
+      "mean_mtta_seconds": 602.7,
+      "mean_mtta_minutes": 10.0,
+      "min_mtta_seconds": 30.0,
+      "max_mtta_seconds": 1199.6,
+      "formatted_lead_time": "~10.0m early"
+    }
+  }
+}

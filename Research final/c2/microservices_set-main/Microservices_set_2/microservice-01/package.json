@@ -1,0 +1,12 @@
+{
+  "name": "microservice-01",
+  "version": "1.0.0",
+  "description": "Basic Node.js Express microservice",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

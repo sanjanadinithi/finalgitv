@@ -1,0 +1,87 @@
+{
+  "generated": "2026-10-18T17:14:51.333761+00:00",
+  "eval_frame": "aligned_telemetry (RF retrained in-fold)",
+  "n_rows": 71355,
+  "n_projects": 6,
+  "n_failure_onsets": 79,
+  "historical_claim_note": "Current sources cannot regenerate the historical LOPO F1 95.13%; the RF is retrained in-fold on the aligned telemetry and both systems are scored on the same out-of-fold frame for a fair relative comparison.",
+  "baseline": {
+    "precision": 0.5911925911925912,
+    "recall": 0.5432546650971614,
+    "f1": 0.5662107803700724,
+    "far": 0.9965700829323231,
+    "n": 71355,
+    "mean_mtta_min": 11.469717379026216,
+    "ece_raw": 0.5183415021929173,
+    "brier_raw": 0.4789650002962366,
+    "ttf_mae_min": NaN
+  },
+  "forecaster": {
+    "f1": 0.6779931077926409,
+    "precision": 0.6519856753434176,
+    "recall": 0.7061615947202872,
+    "far": 0.9999488072079451,
+    "ttf_mae_min": 5.002021227619038,
+    "mean_mtta_min": 15.102643292090395
+  },
+  "calibration": {
+    "ece_raw": 0.5721935236296011,
+    "ece_calibrated": 0.5723957257136111,
+    "brier_raw": 0.5697357204002715,
+    "brier_calibrated": 0.5707434985388317,
+    "conformal_coverage": 0.42468341352540073,
+    "human_review_rate": 0.0,
+    "folds_total": 1,
+    "folds_calibrated": 1
+  },
+  "decision_quality": {
+    "n_failure_onsets": 79,
+    "decision_accuracy_baseline": 0.05063291139240506,
+    "decision_accuracy_advisor": 0.5822784810126582,
+    "unnecessary_restart_baseline": 0.0,
+    "unnecessary_restart_advisor": 0.000125,
+    "mean_ttd_baseline_s": 79.55696202531645,
+    "mean_ttd_advisor_s": 44.78481012658228
+  },
+  "noise": {
+    "raw_alerts": 28,
+    "collapsed_groups": 19,
+    "noise_reduction": 0.32142857142857145
+  },
+  "ope": {
+    "ips": {
+      "estimator": "ips",
+      "value": -54.858024438248016,
+      "ess": 472.9893712206094,
+      "n": 4000,
+      "agreement": 0.1575
+    },
+    "snips": {
+      "estimator": "snips",
+      "value": -59.502370573350156,
+      "ess": 472.9893712206094,
+      "n": 4000,
+      "agreement": 0.1575
+    },
+    "dr": {
+      "estimator": "dr",
+      "value": -62.1875,
+      "ess": 472.9893712206094,
+      "n": 4000,
+      "agreement": 0.1575
+    }
+  },
+  "latency": {
+    "n": 10000,
+    "p50_ms": 0.0219999928958714,
+    "p95_ms": 0.03199999628122896,
+    "p99_ms": 0.03979999746661633,
+    "mean_ms": 0.023217820051650052
+  },
+  "drift_advice_counts": {
+    "ADJUST_THRESHOLD": 15,
+    "RETRAIN_RECOMMENDED": 14
+  },
+  "ttf_model_artifact": "outputs\\advisor_ttf_model.joblib",
+  "backend_note": "TTF via XGBoost quantile regression (torch/lightgbm unavailable)"
+}

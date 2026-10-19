@@ -1,0 +1,2495 @@
+{
+  "microservice-21": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.9132097",
+    "incident_id": "d98d6627-bdf2-4202-9695-81f306e4b46e",
+    "service_name": "microservice-21",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.92,
+    "cpu_alarm": true,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "TRIGGER_LOAD_SHEDDING",
+    "rca_narrative": "HIGH CPU VELOCITY DETECTED: Service 'microservice-21' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 100.0% attribution). Shapley phi_cpu = +0.9026. Memory context probability: 0.0%.",
+    "feature_contributions": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 100.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.9026,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "Step 1 [Pre-Kill Diagnosis]: Capture thread dump -> jcmd $(pgrep -f microservice-21) Thread.print -l > /tmp/threads.txt",
+      "Step 2 [Traffic Isolation]: Drain 50% ingress -> envoy-cli rate-limit set --service=microservice-21 --drop-ratio=0.50",
+      "Step 3 [Self-Healing Action]: Graceful rolling restart -> kubectl rollout restart deployment/microservice-21",
+      "Step 4 [Verification]: Confirm readiness -> kubectl rollout status deployment/microservice-21 --timeout=60s",
+      "Step 5 [Root-Cause Follow-up]: Inspect queue back-pressure -> microservice-21 queue_pressure post-recovery"
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-560509",
+      "service_name": "microservice-21",
+      "severity": "CRITICAL",
+      "impact_radius": "HIGH (Service Outage Imminent)",
+      "cpu_failure_probability": "92.0%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "10-Minute CPU Trend (100.0% Shapley Attribution)",
+      "secondary_root_cause": "Current CPU Utilization % (0.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "10-Minute CPU Trend": "100.0%"
+        },
+        {
+          "Current CPU Utilization %": "0.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "0.0%"
+        }
+      ],
+      "summary": "HIGH CPU VELOCITY DETECTED: Service 'microservice-21' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 100.0% attribution). Shapley phi_cpu = +0.9026. Memory context probability: 0.0%.",
+      "recommended_runbook_steps": [
+        "Step 1 [Pre-Kill Diagnosis]: Capture thread dump -> jcmd $(pgrep -f microservice-21) Thread.print -l > /tmp/threads.txt",
+        "Step 2 [Traffic Isolation]: Drain 50% ingress -> envoy-cli rate-limit set --service=microservice-21 --drop-ratio=0.50",
+        "Step 3 [Self-Healing Action]: Graceful rolling restart -> kubectl rollout restart deployment/microservice-21",
+        "Step 4 [Verification]: Confirm readiness -> kubectl rollout status deployment/microservice-21 --timeout=60s",
+        "Step 5 [Root-Cause Follow-up]: Inspect queue back-pressure -> microservice-21 queue_pressure post-recovery"
+      ]
+    },
+    "advisor": {
+      "recommended_action": "PROACTIVE_RESTART",
+      "confidence": 0.575,
+      "confidence_band": [
+        0.425,
+        0.725
+      ],
+      "time_to_failure_min": 2.4,
+      "time_to_failure_band": [
+        1.2,
+        3.6
+      ],
+      "ranked_actions": [
+        {
+          "action": "PROACTIVE_RESTART",
+          "tier": 2,
+          "expected_cost": 54.384,
+          "residual_failure_prob": 0.23,
+          "risk_reduced": 0.69,
+          "feasibility": 1.0,
+          "description": "Graceful pod restart; clears leak/spike but disruptive.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 63.944,
+          "residual_failure_prob": 0.368,
+          "risk_reduced": 0.552,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 2,
+          "reason": "higher expected cost (+9.6)"
+        },
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 73.504,
+          "residual_failure_prob": 0.506,
+          "risk_reduced": 0.414,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 3,
+          "reason": "higher expected cost (+19.1)"
+        }
+      ],
+      "fallback_matrix_action": "LOAD_SHEDDING",
+      "requires_operator_approval": true,
+      "needs_human_review": false,
+      "brief": "microservice-21: risk 92% (conf 57%). ~2.4 min to failure (range 1.2-3.6 min). Recommend proactive restart [RB-03], driven by 10-Minute CPU Trend (SHAP +0.903). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": true
+  },
+  "microservice-25": {
+    "service_name": "microservice-25",
+    "project_id": "project_4",
+    "cpu_failure_prob": 0.1486313817730157,
+    "cpu_alarm": false,
+    "memory_prob": 0.025,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "warning_message": "OK: Service 'microservice-25' metrics are within normal bounds.",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-25' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "attribution_method": "approximate",
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-471576",
+      "service_name": "microservice-25",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "2.5%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-25' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "mitigation_executed": {
+      "service_name": "microservice-25",
+      "mitigation_tier": "TIER_0_HEALTHY",
+      "action_executed": "NO_ACTION",
+      "status": "HEALTHY",
+      "cooldown_remaining_sec": 0,
+      "command_issued": null,
+      "circuit_breaker": "STANDBY",
+      "timestamp": "2026-10-19T05:34:26.737745+00:00"
+    },
+    "latency_ms": 1296.031200006837,
+    "timestamp": "2026-10-19T05:34:26.783282",
+    "cpu_telemetry_available": false
+  },
+  "microservice-04-azure": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.750297",
+    "incident_id": "7078351a-ee75-4182-be90-94fdb32aa6d4",
+    "service_name": "microservice-04-azure",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.0,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "HIGH CPU VELOCITY DETECTED: Service 'microservice-04-azure' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 100.0% attribution). Shapley phi_cpu = +0.0000. Memory context probability: 0.0%.",
+    "feature_contributions": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 100.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-104273",
+      "service_name": "microservice-04-azure",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "0.0%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "10-Minute CPU Trend (100.0% Shapley Attribution)",
+      "secondary_root_cause": "Current CPU Utilization % (0.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "10-Minute CPU Trend": "100.0%"
+        },
+        {
+          "Current CPU Utilization %": "0.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "0.0%"
+        }
+      ],
+      "summary": "HIGH CPU VELOCITY DETECTED: Service 'microservice-04-azure' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 100.0% attribution). Shapley phi_cpu = +0.0000. Memory context probability: 0.0%.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "NO_ACTION",
+      "confidence": 0.99,
+      "confidence_band": [
+        0.84,
+        1.0
+      ],
+      "time_to_failure_min": 30.0,
+      "time_to_failure_band": [
+        15.0,
+        45.0
+      ],
+      "ranked_actions": [
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 0.0,
+          "residual_failure_prob": 0.0,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 8.0,
+          "residual_failure_prob": 0.0,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 2,
+          "reason": "higher expected cost (+8.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 15.0,
+          "residual_failure_prob": 0.0,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+15.0)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-04-azure: risk 0% (conf 99%). Recommend no action [RB-04], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": true
+  },
+  "microservice-06-azure": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.762427",
+    "incident_id": "47c997af-084d-41a1-852a-8ed728705461",
+    "service_name": "microservice-06-azure",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.92,
+    "cpu_alarm": true,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "TRIGGER_LOAD_SHEDDING",
+    "rca_narrative": "HIGH CPU VELOCITY DETECTED: Service 'microservice-06-azure' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 64.6% attribution). Shapley phi_cpu = +0.5830. Memory context probability: 0.0%.",
+    "feature_contributions": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 35.4,
+      "cpu_trend_10min": 64.6,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.3196,
+      "cpu_trend_10min": 0.583,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "Step 1 [Pre-Kill Diagnosis]: Capture thread dump -> jcmd $(pgrep -f microservice-06-azure) Thread.print -l > /tmp/threads.txt",
+      "Step 2 [Traffic Isolation]: Drain 50% ingress -> envoy-cli rate-limit set --service=microservice-06-azure --drop-ratio=0.50",
+      "Step 3 [Self-Healing Action]: Graceful rolling restart -> kubectl rollout restart deployment/microservice-06-azure",
+      "Step 4 [Verification]: Confirm readiness -> kubectl rollout status deployment/microservice-06-azure --timeout=60s",
+      "Step 5 [Root-Cause Follow-up]: Inspect queue back-pressure -> microservice-06-azure queue_pressure post-recovery"
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-253382",
+      "service_name": "microservice-06-azure",
+      "severity": "CRITICAL",
+      "impact_radius": "HIGH (Service Outage Imminent)",
+      "cpu_failure_probability": "92.0%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "10-Minute CPU Trend (64.6% Shapley Attribution)",
+      "secondary_root_cause": "5-Minute CPU Trend (35.4% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "10-Minute CPU Trend": "64.6%"
+        },
+        {
+          "5-Minute CPU Trend": "35.4%"
+        },
+        {
+          "Current CPU Utilization %": "0.0%"
+        }
+      ],
+      "summary": "HIGH CPU VELOCITY DETECTED: Service 'microservice-06-azure' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 64.6% attribution). Shapley phi_cpu = +0.5830. Memory context probability: 0.0%.",
+      "recommended_runbook_steps": [
+        "Step 1 [Pre-Kill Diagnosis]: Capture thread dump -> jcmd $(pgrep -f microservice-06-azure) Thread.print -l > /tmp/threads.txt",
+        "Step 2 [Traffic Isolation]: Drain 50% ingress -> envoy-cli rate-limit set --service=microservice-06-azure --drop-ratio=0.50",
+        "Step 3 [Self-Healing Action]: Graceful rolling restart -> kubectl rollout restart deployment/microservice-06-azure",
+        "Step 4 [Verification]: Confirm readiness -> kubectl rollout status deployment/microservice-06-azure --timeout=60s",
+        "Step 5 [Root-Cause Follow-up]: Inspect queue back-pressure -> microservice-06-azure queue_pressure post-recovery"
+      ]
+    },
+    "advisor": {
+      "recommended_action": "PROACTIVE_RESTART",
+      "confidence": 0.575,
+      "confidence_band": [
+        0.425,
+        0.725
+      ],
+      "time_to_failure_min": 2.4,
+      "time_to_failure_band": [
+        1.2,
+        3.6
+      ],
+      "ranked_actions": [
+        {
+          "action": "PROACTIVE_RESTART",
+          "tier": 2,
+          "expected_cost": 54.384,
+          "residual_failure_prob": 0.23,
+          "risk_reduced": 0.69,
+          "feasibility": 1.0,
+          "description": "Graceful pod restart; clears leak/spike but disruptive.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 63.944,
+          "residual_failure_prob": 0.368,
+          "risk_reduced": 0.552,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 2,
+          "reason": "higher expected cost (+9.6)"
+        },
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 73.504,
+          "residual_failure_prob": 0.506,
+          "risk_reduced": 0.414,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 3,
+          "reason": "higher expected cost (+19.1)"
+        }
+      ],
+      "fallback_matrix_action": "LOAD_SHEDDING",
+      "requires_operator_approval": true,
+      "needs_human_review": false,
+      "brief": "microservice-06-azure: risk 92% (conf 57%). ~2.4 min to failure (range 1.2-3.6 min). Recommend proactive restart [RB-03], driven by 10-Minute CPU Trend (SHAP +0.583). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 1.72,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": true
+  },
+  "microservicesset": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.7735715",
+    "incident_id": "7a4a4a73-0d9c-4910-9a65-43ebfec19719",
+    "service_name": "microservicesset",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.38,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "HIGH CPU VELOCITY DETECTED: Service 'microservicesset' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 51.0% attribution). Shapley phi_cpu = +0.1851. Memory context probability: 0.0%.",
+    "feature_contributions": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 49.0,
+      "cpu_trend_10min": 51.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.1775,
+      "cpu_trend_10min": 0.1851,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-068342",
+      "service_name": "microservicesset",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "38.0%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "10-Minute CPU Trend (51.0% Shapley Attribution)",
+      "secondary_root_cause": "5-Minute CPU Trend (49.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "10-Minute CPU Trend": "51.0%"
+        },
+        {
+          "5-Minute CPU Trend": "49.0%"
+        },
+        {
+          "Current CPU Utilization %": "0.0%"
+        }
+      ],
+      "summary": "HIGH CPU VELOCITY DETECTED: Service 'microservicesset' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 51.0% attribution). Shapley phi_cpu = +0.1851. Memory context probability: 0.0%.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.502,
+      "confidence_band": [
+        0.352,
+        0.652
+      ],
+      "time_to_failure_min": 18.6,
+      "time_to_failure_band": [
+        9.3,
+        27.9
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 33.08,
+          "residual_failure_prob": 0.209,
+          "risk_reduced": 0.171,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 33.24,
+          "residual_failure_prob": 0.152,
+          "risk_reduced": 0.228,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.2)"
+        },
+        {
+          "action": "PROACTIVE_RESTART",
+          "tier": 2,
+          "expected_cost": 33.4,
+          "residual_failure_prob": 0.095,
+          "risk_reduced": 0.285,
+          "feasibility": 1.0,
+          "description": "Graceful pod restart; clears leak/spike but disruptive.",
+          "rank": 3,
+          "reason": "higher expected cost (+0.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservicesset: risk 38% (conf 50%). Recommend load shedding [RB-01], driven by 10-Minute CPU Trend (SHAP +0.185). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 4.08,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": true
+  },
+  "microservice-20": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.7903097",
+    "incident_id": "484a565e-82d5-4e58-987a-a483648f6353",
+    "service_name": "microservice-20",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-20' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-348783",
+      "service_name": "microservice-20",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-20' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-20: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-19": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.7986684",
+    "incident_id": "ecfd8903-b934-4160-bcf0-51144bac43fd",
+    "service_name": "microservice-19",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-19' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-424240",
+      "service_name": "microservice-19",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-19' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-19: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-18": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.8120046",
+    "incident_id": "bd411d6f-b22e-442f-98c7-c600d4e281dc",
+    "service_name": "microservice-18",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-18' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-169372",
+      "service_name": "microservice-18",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-18' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-18: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-12-azure": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.824248",
+    "incident_id": "055a9acd-ac87-4405-bce3-8d66d5510cd8",
+    "service_name": "microservice-12-azure",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-12-azure' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-673212",
+      "service_name": "microservice-12-azure",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-12-azure' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-12-azure: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-08-azure": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.8437085",
+    "incident_id": "c38e7d0d-f62c-42e2-87d5-80b79e189df1",
+    "service_name": "microservice-08-azure",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-08-azure' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-590273",
+      "service_name": "microservice-08-azure",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-08-azure' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-08-azure: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-12": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.8580437",
+    "incident_id": "798e0250-8e2d-41c7-8f9c-27a7b09b85bb",
+    "service_name": "microservice-12",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-12' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-469772",
+      "service_name": "microservice-12",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-12' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-12: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-11": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.8736207",
+    "incident_id": "32add4e0-2162-4b9a-b113-99e22a8b4d1e",
+    "service_name": "microservice-11",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-11' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-237199",
+      "service_name": "microservice-11",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-11' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-11: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "zz-gw-diag": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.8846946",
+    "incident_id": "89b7cd27-8c28-4037-96a4-880d2da15286",
+    "service_name": "zz-gw-diag",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'zz-gw-diag' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-966266",
+      "service_name": "zz-gw-diag",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'zz-gw-diag' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "zz-gw-diag: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "zz-live-6176": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.8972054",
+    "incident_id": "b900c882-153a-4880-a058-df9347e3115b",
+    "service_name": "zz-live-6176",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'zz-live-6176' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-610872",
+      "service_name": "zz-live-6176",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'zz-live-6176' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "zz-live-6176: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-09": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.9084892",
+    "incident_id": "9d111054-db4c-492c-83fa-4da6e4b8a0fc",
+    "service_name": "microservice-09",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-09' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-984510",
+      "service_name": "microservice-09",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-09' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-09: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "srv-da5trtu417fc738m1kk0": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.712022",
+    "incident_id": "9d13a71d-69a6-45b7-b929-917de9206129",
+    "service_name": "srv-da5trtu417fc738m1kk0",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.0,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "HIGH CPU VELOCITY DETECTED: Service 'srv-da5trtu417fc738m1kk0' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 60.9% attribution). Shapley phi_cpu = +0.0000. Memory context probability: 0.0%.",
+    "feature_contributions": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 39.1,
+      "cpu_trend_10min": 60.9,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-194179",
+      "service_name": "srv-da5trtu417fc738m1kk0",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "0.0%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "10-Minute CPU Trend (60.9% Shapley Attribution)",
+      "secondary_root_cause": "5-Minute CPU Trend (39.1% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "10-Minute CPU Trend": "60.9%"
+        },
+        {
+          "5-Minute CPU Trend": "39.1%"
+        },
+        {
+          "Current CPU Utilization %": "0.0%"
+        }
+      ],
+      "summary": "HIGH CPU VELOCITY DETECTED: Service 'srv-da5trtu417fc738m1kk0' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 60.9% attribution). Shapley phi_cpu = +0.0000. Memory context probability: 0.0%.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "NO_ACTION",
+      "confidence": 0.99,
+      "confidence_band": [
+        0.84,
+        1.0
+      ],
+      "time_to_failure_min": 30.0,
+      "time_to_failure_band": [
+        15.0,
+        45.0
+      ],
+      "ranked_actions": [
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 0.0,
+          "residual_failure_prob": 0.0,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 8.0,
+          "residual_failure_prob": 0.0,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 2,
+          "reason": "higher expected cost (+8.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 15.0,
+          "residual_failure_prob": 0.0,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+15.0)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "srv-da5trtu417fc738m1kk0: risk 0% (conf 99%). Recommend no action [RB-04], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 7.89,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": true
+  },
+  "srv-da5tl53m8hqs73ds5urg": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.7207682",
+    "incident_id": "0457f3f1-3b6e-43f7-8f29-7539c80cbb29",
+    "service_name": "srv-da5tl53m8hqs73ds5urg",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.06,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "HIGH CPU VELOCITY DETECTED: Service 'srv-da5tl53m8hqs73ds5urg' CPU is accelerating rapidly (+0.0% change, primary: '5-Minute CPU Trend' at 58.7% attribution). Shapley phi_cpu = +0.0250. Memory context probability: 0.0%.",
+    "feature_contributions": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 58.7,
+      "cpu_trend_10min": 41.3,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.025,
+      "cpu_trend_10min": 0.0176,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-783452",
+      "service_name": "srv-da5tl53m8hqs73ds5urg",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "6.0%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "5-Minute CPU Trend (58.7% Shapley Attribution)",
+      "secondary_root_cause": "10-Minute CPU Trend (41.3% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "5-Minute CPU Trend": "58.7%"
+        },
+        {
+          "10-Minute CPU Trend": "41.3%"
+        },
+        {
+          "Current CPU Utilization %": "0.0%"
+        }
+      ],
+      "summary": "HIGH CPU VELOCITY DETECTED: Service 'srv-da5tl53m8hqs73ds5urg' CPU is accelerating rapidly (+0.0% change, primary: '5-Minute CPU Trend' at 58.7% attribution). Shapley phi_cpu = +0.0250. Memory context probability: 0.0%.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "NO_ACTION",
+      "confidence": 0.699,
+      "confidence_band": [
+        0.549,
+        0.849
+      ],
+      "time_to_failure_min": 28.2,
+      "time_to_failure_band": [
+        14.1,
+        42.3
+      ],
+      "ranked_actions": [
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 7.2,
+          "residual_failure_prob": 0.06,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 11.96,
+          "residual_failure_prob": 0.033,
+          "risk_reduced": 0.027,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 2,
+          "reason": "higher expected cost (+4.8)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 17.88,
+          "residual_failure_prob": 0.024,
+          "risk_reduced": 0.036,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+10.7)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "srv-da5tl53m8hqs73ds5urg: risk 6% (conf 70%). Recommend no action [RB-04], driven by 5-Minute CPU Trend (SHAP +0.025). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 12.75,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": true
+  },
+  "microservice-03-azure": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.7307491",
+    "incident_id": "9ceba48a-a1fb-4dd4-ab96-0ede4da7389c",
+    "service_name": "microservice-03-azure",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.86,
+    "cpu_alarm": true,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "TRIGGER_LOAD_SHEDDING",
+    "rca_narrative": "HIGH CPU VELOCITY DETECTED: Service 'microservice-03-azure' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 55.0% attribution). Shapley phi_cpu = +0.4635. Memory context probability: 0.0%.",
+    "feature_contributions": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 45.0,
+      "cpu_trend_10min": 55.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.3791,
+      "cpu_trend_10min": 0.4635,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "Step 1 [Pre-Kill Diagnosis]: Capture thread dump -> jcmd $(pgrep -f microservice-03-azure) Thread.print -l > /tmp/threads.txt",
+      "Step 2 [Traffic Isolation]: Drain 50% ingress -> envoy-cli rate-limit set --service=microservice-03-azure --drop-ratio=0.50",
+      "Step 3 [Self-Healing Action]: Graceful rolling restart -> kubectl rollout restart deployment/microservice-03-azure",
+      "Step 4 [Verification]: Confirm readiness -> kubectl rollout status deployment/microservice-03-azure --timeout=60s",
+      "Step 5 [Root-Cause Follow-up]: Inspect queue back-pressure -> microservice-03-azure queue_pressure post-recovery"
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-264285",
+      "service_name": "microservice-03-azure",
+      "severity": "CRITICAL",
+      "impact_radius": "HIGH (Service Outage Imminent)",
+      "cpu_failure_probability": "86.0%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "10-Minute CPU Trend (55.0% Shapley Attribution)",
+      "secondary_root_cause": "5-Minute CPU Trend (45.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "10-Minute CPU Trend": "55.0%"
+        },
+        {
+          "5-Minute CPU Trend": "45.0%"
+        },
+        {
+          "Current CPU Utilization %": "0.0%"
+        }
+      ],
+      "summary": "HIGH CPU VELOCITY DETECTED: Service 'microservice-03-azure' CPU is accelerating rapidly (+0.0% change, primary: '10-Minute CPU Trend' at 55.0% attribution). Shapley phi_cpu = +0.4635. Memory context probability: 0.0%.",
+      "recommended_runbook_steps": [
+        "Step 1 [Pre-Kill Diagnosis]: Capture thread dump -> jcmd $(pgrep -f microservice-03-azure) Thread.print -l > /tmp/threads.txt",
+        "Step 2 [Traffic Isolation]: Drain 50% ingress -> envoy-cli rate-limit set --service=microservice-03-azure --drop-ratio=0.50",
+        "Step 3 [Self-Healing Action]: Graceful rolling restart -> kubectl rollout restart deployment/microservice-03-azure",
+        "Step 4 [Verification]: Confirm readiness -> kubectl rollout status deployment/microservice-03-azure --timeout=60s",
+        "Step 5 [Root-Cause Follow-up]: Inspect queue back-pressure -> microservice-03-azure queue_pressure post-recovery"
+      ]
+    },
+    "advisor": {
+      "recommended_action": "PROACTIVE_RESTART",
+      "confidence": 0.505,
+      "confidence_band": [
+        0.355,
+        0.655
+      ],
+      "time_to_failure_min": 4.2,
+      "time_to_failure_band": [
+        2.1,
+        6.3
+      ],
+      "ranked_actions": [
+        {
+          "action": "PROACTIVE_RESTART",
+          "tier": 2,
+          "expected_cost": 49.176,
+          "residual_failure_prob": 0.215,
+          "risk_reduced": 0.645,
+          "feasibility": 1.0,
+          "description": "Graceful pod restart; clears leak/spike but disruptive.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "CRITICAL_RESTART_AND_REROUTE",
+          "tier": 3,
+          "expected_cost": 49.632,
+          "residual_failure_prob": 0.0688,
+          "risk_reduced": 0.7912,
+          "feasibility": 1.0,
+          "description": "Isolate, restart, reroute; strongest, highest cost.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.5)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 57.656,
+          "residual_failure_prob": 0.344,
+          "risk_reduced": 0.516,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+8.5)"
+        }
+      ],
+      "fallback_matrix_action": "LOAD_SHEDDING",
+      "requires_operator_approval": true,
+      "needs_human_review": false,
+      "brief": "microservice-03-azure: risk 86% (conf 50%). ~4.2 min to failure (range 2.1-6.3 min). Recommend proactive restart [RB-03], driven by 10-Minute CPU Trend (SHAP +0.464). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.58,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": true
+  },
+  "microservice-07-azure": {
+    "prediction_timestamp": "2026-10-19T05:38:20.608371+00:00",
+    "source_timestamp": "1792388267.7412372",
+    "incident_id": "c9180e68-e439-43d8-ae91-a2b55bb99141",
+    "service_name": "microservice-07-azure",
+    "project_id": "Proj_01",
+    "cpu_failure_prob": 0.148631,
+    "cpu_alarm": false,
+    "memory_prob": 0.0,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-07-azure' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-336000",
+      "service_name": "microservice-07-azure",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "0.0%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-07-azure' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "advisor": {
+      "recommended_action": "LOAD_SHEDDING",
+      "confidence": 0.501,
+      "confidence_band": [
+        0.351,
+        0.651
+      ],
+      "time_to_failure_min": 25.541,
+      "time_to_failure_band": [
+        12.771,
+        38.312
+      ],
+      "ranked_actions": [
+        {
+          "action": "LOAD_SHEDDING",
+          "tier": 1,
+          "expected_cost": 17.81,
+          "residual_failure_prob": 0.0817,
+          "risk_reduced": 0.0669,
+          "feasibility": 1.0,
+          "description": "Envoy shed 25% traffic; fast, low disruption.",
+          "rank": 1,
+          "reason": "lowest expected cost"
+        },
+        {
+          "action": "NO_ACTION",
+          "tier": 0,
+          "expected_cost": 17.836,
+          "residual_failure_prob": 0.1486,
+          "risk_reduced": 0.0,
+          "feasibility": 1.0,
+          "description": "Continue monitoring; no intervention.",
+          "rank": 2,
+          "reason": "higher expected cost (+0.0)"
+        },
+        {
+          "action": "SCALE_OUT",
+          "tier": 2,
+          "expected_cost": 22.134,
+          "residual_failure_prob": 0.0595,
+          "risk_reduced": 0.0892,
+          "feasibility": 1.0,
+          "description": "kubectl add 2 replicas; effective but slower to provision.",
+          "rank": 3,
+          "reason": "higher expected cost (+4.3)"
+        }
+      ],
+      "fallback_matrix_action": "NO_ACTION",
+      "requires_operator_approval": false,
+      "needs_human_review": false,
+      "brief": "microservice-07-azure: risk 15% (conf 50%). Recommend load shedding [RB-01], driven by Current CPU Utilization % (SHAP +0.000). Above Tier-1 needs your approval."
+    },
+    "cpu_pct_raw": 0.0,
+    "cpu_trend_raw": 0.0,
+    "mem_leak_raw": 0.0,
+    "state_machine": "HEALTHY",
+    "cpu_telemetry_available": false
+  },
+  "microservice-24": {
+    "service_name": "microservice-24",
+    "project_id": "project_3",
+    "cpu_failure_prob": 0.1486313817730157,
+    "cpu_alarm": false,
+    "memory_prob": 0.0817,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "warning_message": "OK: Service 'microservice-24' metrics are within normal bounds.",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-24' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "attribution_method": "approximate",
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-013262",
+      "service_name": "microservice-24",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "8.2%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-24' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "mitigation_executed": {
+      "service_name": "microservice-24",
+      "mitigation_tier": "TIER_0_HEALTHY",
+      "action_executed": "NO_ACTION",
+      "status": "HEALTHY",
+      "cooldown_remaining_sec": 0,
+      "command_issued": null,
+      "circuit_breaker": "STANDBY",
+      "timestamp": "2026-10-19T05:18:37.755901+00:00"
+    },
+    "latency_ms": 1437.058400013484,
+    "timestamp": "2026-10-19T05:18:37.777202",
+    "cpu_telemetry_available": false
+  },
+  "microservice-22": {
+    "service_name": "microservice-22",
+    "project_id": "project_2",
+    "cpu_failure_prob": 0.1486313817730157,
+    "cpu_alarm": false,
+    "memory_prob": 0.221,
+    "memory_alert": false,
+    "memory_pred_label": "NORMAL",
+    "joint_alarm": false,
+    "action_recommended": "NO_ACTION",
+    "warning_message": "OK: Service 'microservice-22' metrics are within normal bounds.",
+    "rca_narrative": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-22' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+    "feature_contributions": {
+      "cpu_percent": 10.0,
+      "cpu_velocity": 10.0,
+      "cpu_trend_5min": 10.0,
+      "cpu_trend_10min": 10.0,
+      "in_flight_queue": 10.0,
+      "incoming_rate": 10.0,
+      "processing_rate": 10.0,
+      "queue_growth_rate": 10.0,
+      "queue_pressure_index": 10.0,
+      "overload_flag": 10.0
+    },
+    "shapley_phi_values": {
+      "cpu_percent": 0.0,
+      "cpu_velocity": 0.0,
+      "cpu_trend_5min": 0.0,
+      "cpu_trend_10min": 0.0,
+      "in_flight_queue": 0.0,
+      "incoming_rate": 0.0,
+      "processing_rate": 0.0,
+      "queue_growth_rate": 0.0,
+      "queue_pressure_index": 0.0,
+      "overload_flag": 0.0
+    },
+    "attribution_method": "approximate",
+    "sre_runbook_steps": [
+      "No action required. CPU and queue metrics are healthy."
+    ],
+    "incident_ticket_payload": {
+      "ticket_id": "INC-C4-195431",
+      "service_name": "microservice-22",
+      "severity": "NOMINAL",
+      "impact_radius": "NONE (Metrics within SLA)",
+      "cpu_failure_probability": "14.9%",
+      "memory_context_probability": "22.1%",
+      "primary_root_cause": "Current CPU Utilization % (10.0% Shapley Attribution)",
+      "secondary_root_cause": "CPU Velocity (Rate of Change) (10.0% Shapley Attribution)",
+      "top_3_cpu_features_by_importance": [
+        {
+          "Current CPU Utilization %": "10.0%"
+        },
+        {
+          "CPU Velocity (Rate of Change)": "10.0%"
+        },
+        {
+          "5-Minute CPU Trend": "10.0%"
+        }
+      ],
+      "summary": "NORMAL OPERATIONAL PARAMETERS: Service 'microservice-22' CPU metrics stable. CPU=0.0%, Top contributor 'Current CPU Utilization %' (10.0%) within baseline.",
+      "recommended_runbook_steps": [
+        "No action required. CPU and queue metrics are healthy."
+      ]
+    },
+    "mitigation_executed": {
+      "service_name": "microservice-22",
+      "mitigation_tier": "TIER_0_HEALTHY",
+      "action_executed": "NO_ACTION",
+      "status": "HEALTHY",
+      "cooldown_remaining_sec": 0,
+      "command_issued": null,
+      "circuit_breaker": "STANDBY",
+      "timestamp": "2026-10-19T05:20:59.751954+00:00"
+    },
+    "latency_ms": 1387.057999992976,
+    "timestamp": "2026-10-19T05:20:59.769570",
+    "cpu_telemetry_available": false
+  }
+}

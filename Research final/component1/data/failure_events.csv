@@ -1,0 +1,5 @@
+service_name,failure_type,start_time,end_time
+notification-worker,MEMORY_LEAK,2026-10-15T17:20:00,2026-10-15T17:35:00
+order-processor,OOM,2026-10-15T17:25:00,2026-10-15T17:40:00
+payment-service,MEMORY_LEAK,2026-10-15T17:30:00,2026-10-15T17:45:00
+user-api,OOM,2026-10-15T17:22:00,2026-10-15T17:37:00

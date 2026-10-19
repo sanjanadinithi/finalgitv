@@ -1,0 +1,14 @@
+name: microservice-13
+version: 0.1.0.0
+dependencies:
+- base >= 4.7 && < 5
+- servant-server
+- servant
+- wai
+- warp
+executables:
+  microservice-13-exe:
+    main: Main.hs
+    source-dirs: src
+    dependencies:
+    - microservice-13

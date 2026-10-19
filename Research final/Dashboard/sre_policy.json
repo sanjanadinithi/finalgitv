@@ -1,0 +1,6 @@
+{
+  "cpu_threshold": 0.6,
+  "memory_threshold": 0.7,
+  "critical_threshold": 0.9,
+  "last_updated": "2026-10-17T02:23:28.268269+00:00"
+}

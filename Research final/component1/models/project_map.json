@@ -1,0 +1,11 @@
+{
+  "svc-a": "project_1",
+  "service-alpha": "project_2",
+  "service-beta": "project_3",
+  "svc-order": "project_4",
+  "svc-payment": "project_5",
+  "svc-catalog": "project_6",
+  "rising-ram-svc": "project_7",
+  "single-point-svc": "project_8",
+  "microservice-22": "project_9"
+}

@@ -1,0 +1,3324 @@
+{
+  "version": "advisor-drift-v1",
+  "entries": [
+    {
+      "service": "go-azure",
+      "timestamp": "2026-10-18T16:51:52.264122+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.1862,
+        "ks": {
+          "ks_stat": 0.5617596024967533,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 1882
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 623
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,node-azure",
+      "timestamp": "2026-10-18T16:51:52.294394+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 16.8465,
+        "ks": {
+          "ks_stat": 0.9946989565314436,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.3867,
+          "alarms": 70
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.39.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,php-azure",
+      "timestamp": "2026-10-18T16:51:52.384038+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.467,
+        "ks": {
+          "ks_stat": 0.9380968323940256,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 360
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 360
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.8417,
+          "alarms": 303
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.84.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,python-azure",
+      "timestamp": "2026-10-18T16:51:52.413991+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 5.2614,
+        "ks": {
+          "ks_stat": 0.8880968323940256,
+          "p_value": 1.150108097853715e-169
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9611,
+          "alarms": 173
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.96.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure",
+      "timestamp": "2026-10-18T16:52:00.413939+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 5.7675,
+        "ks": {
+          "ks_stat": 0.9134373521567063,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 23934
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 36
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,php-azure",
+      "timestamp": "2026-10-18T16:52:00.490112+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 4.4305,
+        "ks": {
+          "ks_stat": 0.8305461878268064,
+          "p_value": 2.4077841085153868e-272
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 70
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,python-azure",
+      "timestamp": "2026-10-18T16:52:00.623359+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 0.8635,
+        "ks": {
+          "ks_stat": 0.3073284703697001,
+          "p_value": 1.0908187388817347e-44
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 543
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,ruby-azure",
+      "timestamp": "2026-10-18T16:52:00.683777+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.64,
+        "ks": {
+          "ks_stat": 0.46727504107361933,
+          "p_value": 2.2903020360864993e-71
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure",
+      "timestamp": "2026-10-18T16:52:01.206581+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 3.0702,
+        "ks": {
+          "ks_stat": 0.688756687651582,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 2349
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 186
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,go-azure",
+      "timestamp": "2026-10-18T16:52:01.273404+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.7001,
+        "ks": {
+          "ks_stat": 0.4783553734835917,
+          "p_value": 5.546291227998426e-75
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 177
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,node-azure",
+      "timestamp": "2026-10-18T16:52:01.323677+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.6625,
+        "ks": {
+          "ks_stat": 0.4770102114837342,
+          "p_value": 9.54191427756479e-75
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 174
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,python-azure",
+      "timestamp": "2026-10-18T16:52:01.383794+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.4437,
+        "ks": {
+          "ks_stat": 0.4297634990606923,
+          "p_value": 9.792552847699029e-60
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 360
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 160
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,ruby-azure",
+      "timestamp": "2026-10-18T16:52:01.418631+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.2939,
+        "ks": {
+          "ks_stat": 0.028569834272641037,
+          "p_value": 0.9977703437021367
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 1.0,
+          "alarms": 181
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 1.00.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure",
+      "timestamp": "2026-10-18T16:52:02.013468+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 3.177,
+        "ks": {
+          "ks_stat": 0.7021434117244477,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 2061
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 330
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,go-azure",
+      "timestamp": "2026-10-18T16:52:02.098972+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.9456,
+        "ks": {
+          "ks_stat": 0.9493307182135468,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 362
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9669,
+          "alarms": 350
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.97.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,node-azure",
+      "timestamp": "2026-10-18T16:52:02.143374+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 5.5859,
+        "ks": {
+          "ks_stat": 0.9051318231859224,
+          "p_value": 1.6617928834546894e-183
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9669,
+          "alarms": 175
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.97.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,php-azure",
+      "timestamp": "2026-10-18T16:52:02.213675+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.6625,
+        "ks": {
+          "ks_stat": 0.4751129959265666,
+          "p_value": 4.035654624660459e-74
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 170
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure",
+      "timestamp": "2026-10-18T16:52:02.600819+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.9131,
+        "ks": {
+          "ks_stat": 0.6683159788761479,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 1445
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 53
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,go-azure",
+      "timestamp": "2026-10-18T16:52:02.633870+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 3.384,
+        "ks": {
+          "ks_stat": 0.7269857212829145,
+          "p_value": 2.394072026364015e-96
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9556,
+          "alarms": 172
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.96.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,python-azure",
+      "timestamp": "2026-10-18T16:52:02.713673+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.6176,
+        "ks": {
+          "ks_stat": 0.4630968323940256,
+          "p_value": 7.798524075939727e-70
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 360
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 163
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-backend",
+      "timestamp": "2026-10-18T16:52:07.478415+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.0024,
+        "ks": {
+          "ks_stat": 0.009151249680453409,
+          "p_value": 0.5444748182302638
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 13202
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 1000
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.85,
+          "far": 0.9903,
+          "recall": 0.9867,
+          "alarms": 13074
+        },
+        "reason": "Drift detected; moving threshold to 0.85 projects FAR 0.99 / recall 0.99.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-mock-auth-azure",
+      "timestamp": "2026-10-18T16:52:07.481904+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.2647,
+        "ks": {
+          "ks_stat": 0.15260495136060115,
+          "p_value": 0.5788261388281444
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 24
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 24
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 1.0,
+          "alarms": 24
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 1.00.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_02-ruby-azure",
+      "timestamp": "2026-10-18T16:52:07.483530+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 1.934,
+        "ks": {
+          "ks_stat": 0.5402960304274494,
+          "p_value": 5.337877896678311e-09
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 31
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 31
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6452,
+          "alarms": 20
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.65.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_03-php-azure",
+      "timestamp": "2026-10-18T16:52:07.588356+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.461,
+        "ks": {
+          "ks_stat": 0.6044350918357333,
+          "p_value": 1.827026980849069e-139
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 406
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 406
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9951,
+          "alarms": 404
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 1.00.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_04-go-azure",
+      "timestamp": "2026-10-18T16:52:07.593332+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 1.917,
+        "ks": {
+          "ks_stat": 0.5373634791078014,
+          "p_value": 0.0016939028800351218
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 11
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 11
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.5,
+          "recall": 0.7778,
+          "alarms": 8
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.50 / recall 0.78.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_05-python-azure",
+      "timestamp": "2026-10-18T16:52:07.598667+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.2468,
+        "ks": {
+          "ks_stat": 0.5955359633948998,
+          "p_value": 2.6626947291591087e-07
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 20
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 20
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.5,
+          "recall": 0.6667,
+          "alarms": 13
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.50 / recall 0.67.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_06-node-azure",
+      "timestamp": "2026-10-18T16:52:07.599735+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 1.8767,
+        "ks": {
+          "ks_stat": 0.5347787082623308,
+          "p_value": 0.0005312688294138918
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 13
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 13
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.7692,
+          "alarms": 10
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.77.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure",
+      "timestamp": "2026-10-18T17:00:43.429273+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.1699,
+        "ks": {
+          "ks_stat": 0.5099458123716469,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 3325
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 403
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,node-azure",
+      "timestamp": "2026-10-18T17:00:43.479272+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.6406,
+        "ks": {
+          "ks_stat": 0.9351627442599055,
+          "p_value": 2.688964153394714e-214
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.5304,
+          "alarms": 96
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.53.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,php-azure",
+      "timestamp": "2026-10-18T17:00:43.559579+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 7.3754,
+        "ks": {
+          "ks_stat": 0.9567545007592827,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 360
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 360
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.8444,
+          "alarms": 304
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.84.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,python-azure",
+      "timestamp": "2026-10-18T17:00:43.725834+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.8222,
+        "ks": {
+          "ks_stat": 0.2586063526111346,
+          "p_value": 7.215949181773826e-32
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 540
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 540
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9833,
+          "alarms": 531
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.98.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure",
+      "timestamp": "2026-10-18T17:00:52.848660+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 5.8855,
+        "ks": {
+          "ks_stat": 0.9001821459110658,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 26390
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 1000
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,php-azure",
+      "timestamp": "2026-10-18T17:00:52.948935+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 4.8559,
+        "ks": {
+          "ks_stat": 0.8298361459403754,
+          "p_value": 5.865600736146798e-274
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 362
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9282,
+          "alarms": 336
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.93.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,python-azure",
+      "timestamp": "2026-10-18T17:00:53.142779+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.9208,
+        "ks": {
+          "ks_stat": 0.4693389083713147,
+          "p_value": 9.606843933246222e-144
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 724
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 336
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:00:53.203882+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.004,
+        "ks": {
+          "ks_stat": 0.483147236985814,
+          "p_value": 3.178603424100441e-77
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure",
+      "timestamp": "2026-10-18T17:00:54.568930+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.6146,
+        "ks": {
+          "ks_stat": 0.4162846722133019,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 4491
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 409
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,go-azure",
+      "timestamp": "2026-10-18T17:00:54.693138+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.0759,
+        "ks": {
+          "ks_stat": 0.31294556266990187,
+          "p_value": 7.011398939997946e-47
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 542
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,node-azure",
+      "timestamp": "2026-10-18T17:00:54.948453+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.3175,
+        "ks": {
+          "ks_stat": 0.361054980641158,
+          "p_value": 2.94704856192132e-103
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 903
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 72
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,python-azure",
+      "timestamp": "2026-10-18T17:00:55.075863+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 0.8809,
+        "ks": {
+          "ks_stat": 0.2715693155740976,
+          "p_value": 3.756023846344011e-35
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 540
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 160
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:00:55.148512+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.9206,
+        "ks": {
+          "ks_stat": 0.4692968214733486,
+          "p_value": 1.265347336646102e-72
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure",
+      "timestamp": "2026-10-18T17:00:56.683649+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.8086,
+        "ks": {
+          "ks_stat": 0.6047854430940225,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 4582
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 252
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,go-azure",
+      "timestamp": "2026-10-18T17:00:56.778480+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.0168,
+        "ks": {
+          "ks_stat": 0.9071842122387179,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 362
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9061,
+          "alarms": 328
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.91.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,node-azure",
+      "timestamp": "2026-10-18T17:00:56.896159+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.5802,
+        "ks": {
+          "ks_stat": 0.5723326482228276,
+          "p_value": 1.919827201667481e-165
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 541
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 355
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,php-azure",
+      "timestamp": "2026-10-18T17:00:56.968736+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.0125,
+        "ks": {
+          "ks_stat": 0.48707087404433685,
+          "p_value": 8.899900906503912e-79
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 170
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:00:56.998690+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 8.4124,
+        "ks": {
+          "ks_stat": 0.9734211674259494,
+          "p_value": 1.9631629736628216e-282
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.75,
+          "alarms": 135
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.75.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure",
+      "timestamp": "2026-10-18T17:00:57.776028+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.8329,
+        "ks": {
+          "ks_stat": 0.45446898739782005,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 2528
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 379
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,go-azure",
+      "timestamp": "2026-10-18T17:00:57.818607+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 3.961,
+        "ks": {
+          "ks_stat": 0.7456433896481716,
+          "p_value": 3.8061554229723537e-103
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9167,
+          "alarms": 165
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.92.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,node-azure",
+      "timestamp": "2026-10-18T17:00:57.848527+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 5.9125,
+        "ks": {
+          "ks_stat": 0.9016593503602649,
+          "p_value": 1.0336757328567427e-181
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.7624,
+          "alarms": 138
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.76.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,python-azure",
+      "timestamp": "2026-10-18T17:00:58.925546+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.0616,
+        "ks": {
+          "ks_stat": 0.044154670057431525,
+          "p_value": 3.911898917343047e-05
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 3019
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9944,
+          "alarms": 3002
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.99.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-backend",
+      "timestamp": "2026-10-18T17:01:06.342388+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.0057,
+        "ks": {
+          "ks_stat": 0.010698146951479498,
+          "p_value": 0.11329768472279478
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 19835
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 1000
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.85,
+          "far": 0.9838,
+          "recall": 0.9869,
+          "alarms": 19515
+        },
+        "reason": "Drift detected; moving threshold to 0.85 projects FAR 0.98 / recall 0.99.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-mock-auth-azure",
+      "timestamp": "2026-10-18T17:01:06.362715+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.5436,
+        "ks": {
+          "ks_stat": 0.19378068699510978,
+          "p_value": 0.28931463689503023
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 24
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 24
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 1.0,
+          "alarms": 24
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 1.00.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_02-ruby-azure",
+      "timestamp": "2026-10-18T17:01:06.370295+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.3169,
+        "ks": {
+          "ks_stat": 0.5366387129149379,
+          "p_value": 7.107681007685405e-09
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 31
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 31
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6452,
+          "alarms": 20
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.65.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_03-php-azure",
+      "timestamp": "2026-10-18T17:01:06.428000+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.5525,
+        "ks": {
+          "ks_stat": 0.56942734444559,
+          "p_value": 1.8963601566629167e-123
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 406
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 40
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_04-go-azure",
+      "timestamp": "2026-10-18T17:01:06.442353+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.2979,
+        "ks": {
+          "ks_stat": 0.5408496512785558,
+          "p_value": 0.0015367090701308343
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 11
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 11
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.5,
+          "recall": 0.7778,
+          "alarms": 8
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.50 / recall 0.78.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_05-python-azure",
+      "timestamp": "2026-10-18T17:01:06.447939+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.6648,
+        "ks": {
+          "ks_stat": 0.5977861085692358,
+          "p_value": 2.3337625579491642e-07
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 20
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 20
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6667,
+          "alarms": 12
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.67.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_06-node-azure",
+      "timestamp": "2026-10-18T17:01:06.457180+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.2528,
+        "ks": {
+          "ks_stat": 0.536070535716313,
+          "p_value": 0.0005093127866475335
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 13
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 13
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6923,
+          "alarms": 9
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.69.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure",
+      "timestamp": "2026-10-18T17:09:30.489297+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.1699,
+        "ks": {
+          "ks_stat": 0.5099458123716469,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 3325
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 403
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,node-azure",
+      "timestamp": "2026-10-18T17:09:30.519443+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.6406,
+        "ks": {
+          "ks_stat": 0.9351627442599055,
+          "p_value": 2.688964153394714e-214
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.5304,
+          "alarms": 96
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.53.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,php-azure",
+      "timestamp": "2026-10-18T17:09:30.626185+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 7.3754,
+        "ks": {
+          "ks_stat": 0.9567545007592827,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 360
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 360
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.8444,
+          "alarms": 304
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.84.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,python-azure",
+      "timestamp": "2026-10-18T17:09:30.779447+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.8222,
+        "ks": {
+          "ks_stat": 0.2586063526111346,
+          "p_value": 7.215949181773826e-32
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 540
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 540
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9833,
+          "alarms": 531
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.98.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure",
+      "timestamp": "2026-10-18T17:09:39.514043+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 5.8855,
+        "ks": {
+          "ks_stat": 0.9001821459110658,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 26390
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 1000
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,php-azure",
+      "timestamp": "2026-10-18T17:09:39.609049+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 4.8559,
+        "ks": {
+          "ks_stat": 0.8298361459403754,
+          "p_value": 5.865600736146798e-274
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 362
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9282,
+          "alarms": 336
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.93.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,python-azure",
+      "timestamp": "2026-10-18T17:09:39.782111+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.9208,
+        "ks": {
+          "ks_stat": 0.4693389083713147,
+          "p_value": 9.606843933246222e-144
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 724
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 336
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:09:39.845350+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.004,
+        "ks": {
+          "ks_stat": 0.483147236985814,
+          "p_value": 3.178603424100441e-77
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure",
+      "timestamp": "2026-10-18T17:09:41.188725+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.6146,
+        "ks": {
+          "ks_stat": 0.4162846722133019,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 4491
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 409
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,go-azure",
+      "timestamp": "2026-10-18T17:09:41.335975+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.0759,
+        "ks": {
+          "ks_stat": 0.31294556266990187,
+          "p_value": 7.011398939997946e-47
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 542
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,node-azure",
+      "timestamp": "2026-10-18T17:09:41.578945+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.3175,
+        "ks": {
+          "ks_stat": 0.361054980641158,
+          "p_value": 2.94704856192132e-103
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 903
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 72
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,python-azure",
+      "timestamp": "2026-10-18T17:09:41.694001+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 0.8809,
+        "ks": {
+          "ks_stat": 0.2715693155740976,
+          "p_value": 3.756023846344011e-35
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 540
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 160
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:09:41.768846+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.9206,
+        "ks": {
+          "ks_stat": 0.4692968214733486,
+          "p_value": 1.265347336646102e-72
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure",
+      "timestamp": "2026-10-18T17:09:43.298902+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.8086,
+        "ks": {
+          "ks_stat": 0.6047854430940225,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 4582
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 252
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,go-azure",
+      "timestamp": "2026-10-18T17:09:43.383333+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.0168,
+        "ks": {
+          "ks_stat": 0.9071842122387179,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 362
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9061,
+          "alarms": 328
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.91.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,node-azure",
+      "timestamp": "2026-10-18T17:09:43.508700+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.5802,
+        "ks": {
+          "ks_stat": 0.5723326482228276,
+          "p_value": 1.919827201667481e-165
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 541
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 355
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,php-azure",
+      "timestamp": "2026-10-18T17:09:43.574606+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.0125,
+        "ks": {
+          "ks_stat": 0.48707087404433685,
+          "p_value": 8.899900906503912e-79
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 170
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:09:43.608670+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 8.4124,
+        "ks": {
+          "ks_stat": 0.9734211674259494,
+          "p_value": 1.9631629736628216e-282
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.75,
+          "alarms": 135
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.75.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure",
+      "timestamp": "2026-10-18T17:09:44.381689+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.8329,
+        "ks": {
+          "ks_stat": 0.45446898739782005,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 2528
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 379
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,go-azure",
+      "timestamp": "2026-10-18T17:09:44.414136+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 3.961,
+        "ks": {
+          "ks_stat": 0.7456433896481716,
+          "p_value": 3.8061554229723537e-103
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9167,
+          "alarms": 165
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.92.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,node-azure",
+      "timestamp": "2026-10-18T17:09:44.449189+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 5.9125,
+        "ks": {
+          "ks_stat": 0.9016593503602649,
+          "p_value": 1.0336757328567427e-181
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.7624,
+          "alarms": 138
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.76.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,python-azure",
+      "timestamp": "2026-10-18T17:09:45.522711+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.0616,
+        "ks": {
+          "ks_stat": 0.044154670057431525,
+          "p_value": 3.911898917343047e-05
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 3019
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9944,
+          "alarms": 3002
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.99.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-backend",
+      "timestamp": "2026-10-18T17:09:52.670810+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.0057,
+        "ks": {
+          "ks_stat": 0.010698146951479498,
+          "p_value": 0.11329768472279478
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 19835
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 1000
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.85,
+          "far": 0.9838,
+          "recall": 0.9869,
+          "alarms": 19515
+        },
+        "reason": "Drift detected; moving threshold to 0.85 projects FAR 0.98 / recall 0.99.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-mock-auth-azure",
+      "timestamp": "2026-10-18T17:09:52.678444+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.5436,
+        "ks": {
+          "ks_stat": 0.19378068699510978,
+          "p_value": 0.28931463689503023
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 24
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 24
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 1.0,
+          "alarms": 24
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 1.00.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_02-ruby-azure",
+      "timestamp": "2026-10-18T17:09:52.693300+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.3169,
+        "ks": {
+          "ks_stat": 0.5366387129149379,
+          "p_value": 7.107681007685405e-09
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 31
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 31
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6452,
+          "alarms": 20
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.65.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_03-php-azure",
+      "timestamp": "2026-10-18T17:09:52.743859+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.5525,
+        "ks": {
+          "ks_stat": 0.56942734444559,
+          "p_value": 1.8963601566629167e-123
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 406
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 40
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_04-go-azure",
+      "timestamp": "2026-10-18T17:09:52.750569+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.2979,
+        "ks": {
+          "ks_stat": 0.5408496512785558,
+          "p_value": 0.0015367090701308343
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 11
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 11
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.5,
+          "recall": 0.7778,
+          "alarms": 8
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.50 / recall 0.78.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_05-python-azure",
+      "timestamp": "2026-10-18T17:09:52.758987+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.6648,
+        "ks": {
+          "ks_stat": 0.5977861085692358,
+          "p_value": 2.3337625579491642e-07
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 20
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 20
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6667,
+          "alarms": 12
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.67.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_06-node-azure",
+      "timestamp": "2026-10-18T17:09:52.766740+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.2528,
+        "ks": {
+          "ks_stat": 0.536070535716313,
+          "p_value": 0.0005093127866475335
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 13
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 13
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6923,
+          "alarms": 9
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.69.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure",
+      "timestamp": "2026-10-18T17:14:28.283488+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.1699,
+        "ks": {
+          "ks_stat": 0.5099458123716469,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 3325
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 403
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,node-azure",
+      "timestamp": "2026-10-18T17:14:28.316750+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.6406,
+        "ks": {
+          "ks_stat": 0.9351627442599055,
+          "p_value": 2.688964153394714e-214
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.5304,
+          "alarms": 96
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.53.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,php-azure",
+      "timestamp": "2026-10-18T17:14:28.413212+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 7.3754,
+        "ks": {
+          "ks_stat": 0.9567545007592827,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 360
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 360
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.8444,
+          "alarms": 304
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.84.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "go-azure,python-azure",
+      "timestamp": "2026-10-18T17:14:28.563342+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.8222,
+        "ks": {
+          "ks_stat": 0.2586063526111346,
+          "p_value": 7.215949181773826e-32
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 540
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 540
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9833,
+          "alarms": 531
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.98.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure",
+      "timestamp": "2026-10-18T17:14:37.533414+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 5.8855,
+        "ks": {
+          "ks_stat": 0.9001821459110658,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 26390
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 1000
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,php-azure",
+      "timestamp": "2026-10-18T17:14:37.629829+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 4.8559,
+        "ks": {
+          "ks_stat": 0.8298361459403754,
+          "p_value": 5.865600736146798e-274
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 362
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9282,
+          "alarms": 336
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.93.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,python-azure",
+      "timestamp": "2026-10-18T17:14:37.808652+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.9208,
+        "ks": {
+          "ks_stat": 0.4693389083713147,
+          "p_value": 9.606843933246222e-144
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 724
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 336
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "node-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:14:37.877304+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.004,
+        "ks": {
+          "ks_stat": 0.483147236985814,
+          "p_value": 3.178603424100441e-77
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure",
+      "timestamp": "2026-10-18T17:14:39.279896+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.6146,
+        "ks": {
+          "ks_stat": 0.4162846722133019,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 4491
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 409
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,go-azure",
+      "timestamp": "2026-10-18T17:14:39.413172+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.0759,
+        "ks": {
+          "ks_stat": 0.31294556266990187,
+          "p_value": 7.011398939997946e-47
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 542
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 176
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,node-azure",
+      "timestamp": "2026-10-18T17:14:39.663544+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.3175,
+        "ks": {
+          "ks_stat": 0.361054980641158,
+          "p_value": 2.94704856192132e-103
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 903
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 72
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,python-azure",
+      "timestamp": "2026-10-18T17:14:39.783516+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 0.8809,
+        "ks": {
+          "ks_stat": 0.2715693155740976,
+          "p_value": 3.756023846344011e-35
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 540
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 160
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "php-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:14:39.863319+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.9206,
+        "ks": {
+          "ks_stat": 0.4692968214733486,
+          "p_value": 1.265347336646102e-72
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 361
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure",
+      "timestamp": "2026-10-18T17:14:41.433448+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.8086,
+        "ks": {
+          "ks_stat": 0.6047854430940225,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 4582
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 252
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,go-azure",
+      "timestamp": "2026-10-18T17:14:41.533643+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 6.0168,
+        "ks": {
+          "ks_stat": 0.9071842122387179,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 362
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9061,
+          "alarms": 328
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.91.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,node-azure",
+      "timestamp": "2026-10-18T17:14:41.653431+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.5802,
+        "ks": {
+          "ks_stat": 0.5723326482228276,
+          "p_value": 1.919827201667481e-165
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 541
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 355
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,php-azure",
+      "timestamp": "2026-10-18T17:14:41.727356+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.0125,
+        "ks": {
+          "ks_stat": 0.48707087404433685,
+          "p_value": 8.899900906503912e-79
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 362
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 170
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "python-azure,ruby-azure",
+      "timestamp": "2026-10-18T17:14:41.760802+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 8.4124,
+        "ks": {
+          "ks_stat": 0.9734211674259494,
+          "p_value": 1.9631629736628216e-282
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.75,
+          "alarms": 135
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.75.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure",
+      "timestamp": "2026-10-18T17:14:42.533956+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 1.8329,
+        "ks": {
+          "ks_stat": 0.45446898739782005,
+          "p_value": 0.0
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 2528
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 379
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,go-azure",
+      "timestamp": "2026-10-18T17:14:42.573471+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 3.961,
+        "ks": {
+          "ks_stat": 0.7456433896481716,
+          "p_value": 3.8061554229723537e-103
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 180
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9167,
+          "alarms": 165
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.92.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,node-azure",
+      "timestamp": "2026-10-18T17:14:42.611425+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 5.9125,
+        "ks": {
+          "ks_stat": 0.9016593503602649,
+          "p_value": 1.0336757328567427e-181
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 181
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 181
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.7624,
+          "alarms": 138
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.76.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "ruby-azure,python-azure",
+      "timestamp": "2026-10-18T17:14:43.743493+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.0616,
+        "ks": {
+          "ks_stat": 0.044154670057431525,
+          "p_value": 3.911898917343047e-05
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 3019
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 180
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.9944,
+          "alarms": 3002
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.99.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-backend",
+      "timestamp": "2026-10-18T17:14:51.179696+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.0057,
+        "ks": {
+          "ks_stat": 0.010698146951479498,
+          "p_value": 0.11329768472279478
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 19835
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 1000
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.85,
+          "far": 0.9838,
+          "recall": 0.9869,
+          "alarms": 19515
+        },
+        "reason": "Drift detected; moving threshold to 0.85 projects FAR 0.98 / recall 0.99.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_01-mock-auth-azure",
+      "timestamp": "2026-10-18T17:14:51.196106+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 0.5436,
+        "ks": {
+          "ks_stat": 0.19378068699510978,
+          "p_value": 0.28931463689503023
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 24
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 24
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 1.0,
+          "alarms": 24
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 1.00.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_02-ruby-azure",
+      "timestamp": "2026-10-18T17:14:51.203728+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.3169,
+        "ks": {
+          "ks_stat": 0.5366387129149379,
+          "p_value": 7.107681007685405e-09
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 31
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 31
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6452,
+          "alarms": 20
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.65.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_03-php-azure",
+      "timestamp": "2026-10-18T17:14:51.271520+00:00",
+      "advice": "RETRAIN_RECOMMENDED",
+      "detail": {
+        "psi": 2.5525,
+        "ks": {
+          "ks_stat": 0.56942734444559,
+          "p_value": 1.8963601566629167e-123
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 406
+        },
+        "adwin": {
+          "alarm": true,
+          "window_size": 40
+        },
+        "current_threshold": 0.6,
+        "reason": "Severe data drift (PSI/KS) with concurrent concept drift on residuals \u2014 live model no longer matches production distribution.",
+        "advice": "RETRAIN_RECOMMENDED",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_04-go-azure",
+      "timestamp": "2026-10-18T17:14:51.283320+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.2979,
+        "ks": {
+          "ks_stat": 0.5408496512785558,
+          "p_value": 0.0015367090701308343
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 11
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 11
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.5,
+          "recall": 0.7778,
+          "alarms": 8
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.50 / recall 0.78.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_05-python-azure",
+      "timestamp": "2026-10-18T17:14:51.296667+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.6648,
+        "ks": {
+          "ks_stat": 0.5977861085692358,
+          "p_value": 2.3337625579491642e-07
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 20
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 20
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6667,
+          "alarms": 12
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.67.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    },
+    {
+      "service": "srv-proj_06-node-azure",
+      "timestamp": "2026-10-18T17:14:51.303583+00:00",
+      "advice": "ADJUST_THRESHOLD",
+      "detail": {
+        "psi": 2.2528,
+        "ks": {
+          "ks_stat": 0.536070535716313,
+          "p_value": 0.0005093127866475335
+        },
+        "page_hinkley": {
+          "alarm": false,
+          "n": 13
+        },
+        "adwin": {
+          "alarm": false,
+          "window_size": 13
+        },
+        "current_threshold": 0.6,
+        "threshold_suggestion": {
+          "threshold": 0.3,
+          "far": 0.0,
+          "recall": 0.6923,
+          "alarms": 9
+        },
+        "reason": "Drift detected; moving threshold to 0.30 projects FAR 0.00 / recall 0.69.",
+        "advice": "ADJUST_THRESHOLD",
+        "requires_human_approval": true
+      },
+      "approved": false,
+      "applied": false
+    }
+  ],
+  "active_version": "live-rf-base"
+}

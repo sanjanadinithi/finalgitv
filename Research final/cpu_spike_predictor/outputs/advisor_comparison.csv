@@ -1,0 +1,13 @@
+metric,Baseline (RF + static matrix),Advanced Decision Advisor
+"F1 (RF core, unchanged)",0.5662,0.5662
+"Precision (RF core, unchanged)",0.5912,0.5912
+"Recall (RF core, unchanged)",0.5433,0.5433
+"FAR (RF core, unchanged)",0.9966,0.9966
+"Mean MTTA (min, same detector)",11.47,11.47
+Time-to-failure MAE (min),n/a,5.002
+ECE (same fold model),0.5722,0.5724
+Brier (same fold model),0.5697,0.5707
+Decision accuracy (failure onsets),0.0506,0.5823
+"Mean time-to-decision (s, simulated)",79.6,44.8
+Unnecessary-restart rate,0.0,0.0001
+Alert noise (cascade collapse),0.0,0.3214

@@ -1,0 +1,478 @@
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 64521)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1582, in do_GET
+    self._send_json({"audit": read_audit(limit=limit)})
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 60182)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1103, in build_dashboard
+    save_history()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 203, in save_history
+    _write_json(HISTORY_FILE, SERVICE_HISTORY)
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 188, in _write_json
+    os.replace(tmp, path)
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\ASUS\\Desktop\\Research final\\Dashboard\\service_history.json.tmp' -> 'C:\\Users\\ASUS\\Desktop\\Research final\\Dashboard\\service_history.json'
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 53380)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54939)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1103, in build_dashboard
+    save_history()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 203, in save_history
+    _write_json(HISTORY_FILE, SERVICE_HISTORY)
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 188, in _write_json
+    os.replace(tmp, path)
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\ASUS\\Desktop\\Research final\\Dashboard\\service_history.json.tmp' -> 'C:\\Users\\ASUS\\Desktop\\Research final\\Dashboard\\service_history.json'
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 52712)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 52726)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 52749)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 57733)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 49758)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 49760)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 49762)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 49769)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 64300)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self._send_json(build_dashboard())
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.wfile.write(body)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54194)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    return json.loads(raw) if raw else {}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 53436)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    return json.loads(raw) if raw else {}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 65046)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    return json.loads(raw) if raw else {}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 61963)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    return json.loads(raw) if raw else {}
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1103, in build_dashboard
+    # Sort services by risk severity: CRITICAL first, then WARNING, then HEALTHY
+    ^^^^^^^^^^^^^^
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 203, in save_history
+    if isinstance(samples, list):
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 188, in _write_json
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\ASUS\\Desktop\\Research final\\Dashboard\\service_history.json.tmp' -> 'C:\\Users\\ASUS\\Desktop\\Research final\\Dashboard\\service_history.json'
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58948)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self.wfile.write(body)
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    }
+      
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 65057)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self.wfile.write(body)
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    }
+      
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 62616)
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 317, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 348, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 361, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 755, in __init__
+    self.handle()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1572, in do_GET
+    self.wfile.write(body)
+  File "C:\Users\ASUS\Desktop\Research final\Dashboard\server.py", line 1543, in _send_json
+    }
+      
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python311\Lib\socketserver.py", line 834, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] An established connection was aborted by the software in your host machine
+----------------------------------------

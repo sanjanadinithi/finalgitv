@@ -1,0 +1,8 @@
+name: microservice_14
+description: A basic microservice
+version: 1.0.0
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+dependencies:
+  shelf: ^1.4.0
+  shelf_router: ^1.1.0

@@ -1,0 +1,257 @@
+project_id,service_name,t_fail,t_alarm,mtta_seconds,mtta_minutes,anticipated,strategy
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:35.000000000,2026-06-09 02:30:00.000000000,35.0,0.5833333333333334,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:45.000000000,2026-06-09 02:30:00.000000000,45.0,0.75,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:55.000000000,2026-06-09 02:30:00.000000000,55.0,0.9166666666666666,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:15.000000000,2026-06-09 02:30:00.000000000,75.0,1.25,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:35.000000000,2026-06-09 02:30:00.000000000,95.0,1.5833333333333333,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:55.000000000,2026-06-09 02:30:00.000000000,115.0,1.9166666666666667,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:25.000000000,2026-06-09 02:30:00.000000000,145.0,2.4166666666666665,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:35.000000000,2026-06-09 02:30:00.000000000,155.0,2.5833333333333335,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:55.000000000,2026-06-09 02:30:00.000000000,175.0,2.9166666666666665,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:15.000000000,2026-06-09 02:30:00.000000000,195.0,3.25,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:55.000000000,2026-06-09 02:30:00.000000000,235.0,3.9166666666666665,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:34:07.549456358,2026-08-19 16:33:22.293358088,45.256098,0.7542683,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:39:09.681445599,2026-08-19 16:33:22.293358088,347.388087,5.78980145,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:44:12.159183025,2026-08-19 16:33:22.293358088,649.865824,10.831097066666667,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:49:14.139957905,2026-08-19 16:33:22.293358088,951.846599,15.864109983333332,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-19 17:04:16.252254248,2026-08-19 16:44:17.221652508,1199.030601,19.983843349999997,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-19 17:09:18.405638456,2026-08-19 16:49:19.188783169,1199.216855,19.986947583333333,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-25 10:47:01.451304197,2026-08-25 10:40:18.438782454,403.012521,6.71687535,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-25 10:52:03.638238192,2026-08-25 10:40:18.438782454,705.199455,11.753324249999999,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-25 10:57:05.984620094,2026-08-25 10:40:18.438782454,1007.545837,16.792430616666667,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-25 11:02:07.453095675,2026-08-25 10:42:07.767683506,1199.685412,19.994756866666666,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-25 11:07:10.014968634,2026-08-25 10:47:10.508055924,1199.506912,19.991781866666667,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-25 11:12:11.845124960,2026-08-25 10:52:12.711712599,1199.133412,19.985556866666666,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:16:36.826201677,2026-08-26 05:00:26.095383406,970.730818,16.178846966666665,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:21:39.492586851,2026-08-26 05:02:08.236069679,1171.256517,19.52094195,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:26:41.021783352,2026-08-26 05:15:51.492175817,649.529607,10.825493450000002,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:31:42.831943274,2026-08-26 05:15:51.492175817,951.339767,15.855662783333335,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:36:45.354738235,2026-08-26 05:16:45.896773815,1199.457964,19.990966066666665,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:41:58.057993412,2026-08-26 05:21:58.679224491,1199.378768,19.989646133333334,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:36:37.159049034,2026-08-26 08:19:32.045747280,1025.113301,17.085221683333334,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:41:39.178109646,2026-08-26 08:35:51.697051287,347.481058,5.791350966666667,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:46:41.737770796,2026-08-26 08:35:51.697051287,650.040719,10.834011983333333,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:51:42.986938953,2026-08-26 08:35:51.697051287,951.289887,15.85483145,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:56:45.599437714,2026-08-26 08:36:46.235972166,1199.363465,19.98939108333333,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 09:01:47.118447065,2026-08-26 08:41:47.260310888,1199.858136,19.997635600000002,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 09:19:17.020771265,2026-08-26 08:59:17.921245098,1199.099526,19.9849921,1,CPU_Only
+Proj_01,srv-proj_01-backend,2026-08-26 09:24:18.800864458,2026-08-26 09:04:19.390252829,1199.410611,19.99017685,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:15.000000000,,0.0,0.0,0,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:40.000000000,2026-06-09 03:00:15.000000000,25.0,0.4166666666666667,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:01:55.000000000,2026-06-09 03:00:15.000000000,100.0,1.6666666666666667,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:02:35.000000000,2026-06-09 03:00:15.000000000,140.0,2.3333333333333335,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:00.000000000,2026-06-09 03:00:15.000000000,165.0,2.75,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:45.000000000,2026-06-09 03:00:15.000000000,210.0,3.5,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:55.000000000,2026-06-09 03:00:15.000000000,220.0,3.6666666666666665,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:04:35.000000000,2026-06-09 03:00:15.000000000,260.0,4.333333333333333,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:05:00.000000000,2026-06-09 03:00:15.000000000,285.0,4.75,1,CPU_Only
+Proj_02,srv-proj_02-ruby-azure,2026-08-19 17:26:19.664871693,,0.0,0.0,0,CPU_Only
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:30:40.000000000,,0.0,0.0,0,CPU_Only
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:32:40.000000000,2026-06-09 03:30:40.000000000,120.0,2.0,1,CPU_Only
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,CPU_Only
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,CPU_Only
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,CPU_Only
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,CPU_Only
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,CPU_Only
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,CPU_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,CPU_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,CPU_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,CPU_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,CPU_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,CPU_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,CPU_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,CPU_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,CPU_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,CPU_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:35.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:45.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:55.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:15.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:35.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:55.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:25.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:35.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:55.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:15.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:55.000000000,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:34:07.549456358,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:39:09.681445599,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:44:12.159183025,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-19 16:49:14.139957905,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-19 17:04:16.252254248,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-19 17:09:18.405638456,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-25 10:47:01.451304197,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-25 10:52:03.638238192,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-25 10:57:05.984620094,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-25 11:02:07.453095675,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-25 11:07:10.014968634,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-25 11:12:11.845124960,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:16:36.826201677,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:21:39.492586851,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:26:41.021783352,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:31:42.831943274,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:36:45.354738235,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 05:41:58.057993412,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:36:37.159049034,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:41:39.178109646,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:46:41.737770796,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:51:42.986938953,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 08:56:45.599437714,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 09:01:47.118447065,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 09:19:17.020771265,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-08-26 09:24:18.800864458,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:15.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:40.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:01:55.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:02:35.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:00.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:45.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:55.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:04:35.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:05:00.000000000,,0.0,0.0,0,Memory_Only
+Proj_02,srv-proj_02-ruby-azure,2026-08-19 17:26:19.664871693,,0.0,0.0,0,Memory_Only
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:30:40.000000000,,0.0,0.0,0,Memory_Only
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:32:40.000000000,,0.0,0.0,0,Memory_Only
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Memory_Only
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Memory_Only
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Memory_Only
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Memory_Only
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Memory_Only
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Memory_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Memory_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Memory_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Memory_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Memory_Only
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Memory_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Memory_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Memory_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Memory_Only
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Memory_Only
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:35.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:45.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:55.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:15.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:35.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:55.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:25.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:35.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:55.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:15.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:55.000000000,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-19 16:34:07.549456358,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-19 16:39:09.681445599,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-19 16:44:12.159183025,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-19 16:49:14.139957905,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-19 17:04:16.252254248,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-19 17:09:18.405638456,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-25 10:47:01.451304197,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-25 10:52:03.638238192,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-25 10:57:05.984620094,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-25 11:02:07.453095675,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-25 11:07:10.014968634,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-25 11:12:11.845124960,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 05:16:36.826201677,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 05:21:39.492586851,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 05:26:41.021783352,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 05:31:42.831943274,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 05:36:45.354738235,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 05:41:58.057993412,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 08:36:37.159049034,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 08:41:39.178109646,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 08:46:41.737770796,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 08:51:42.986938953,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 08:56:45.599437714,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 09:01:47.118447065,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 09:19:17.020771265,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-08-26 09:24:18.800864458,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:15.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:40.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:01:55.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:02:35.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:00.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:45.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:55.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:04:35.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:05:00.000000000,,0.0,0.0,0,Joint_AND
+Proj_02,srv-proj_02-ruby-azure,2026-08-19 17:26:19.664871693,,0.0,0.0,0,Joint_AND
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:30:40.000000000,,0.0,0.0,0,Joint_AND
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:32:40.000000000,,0.0,0.0,0,Joint_AND
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Joint_AND
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Joint_AND
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Joint_AND
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Joint_AND
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Joint_AND
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Joint_AND
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_AND
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_AND
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_AND
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_AND
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_AND
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_AND
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_AND
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_AND
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_AND
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:35.000000000,2026-06-09 02:30:00.000000000,35.0,0.5833333333333334,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:45.000000000,2026-06-09 02:30:00.000000000,45.0,0.75,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:30:55.000000000,2026-06-09 02:30:00.000000000,55.0,0.9166666666666666,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:15.000000000,2026-06-09 02:30:00.000000000,75.0,1.25,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:35.000000000,2026-06-09 02:30:00.000000000,95.0,1.5833333333333333,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:31:55.000000000,2026-06-09 02:30:00.000000000,115.0,1.9166666666666667,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:25.000000000,2026-06-09 02:30:00.000000000,145.0,2.4166666666666665,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:35.000000000,2026-06-09 02:30:00.000000000,155.0,2.5833333333333335,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:32:55.000000000,2026-06-09 02:30:00.000000000,175.0,2.9166666666666665,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:15.000000000,2026-06-09 02:30:00.000000000,195.0,3.25,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-06-09 02:33:55.000000000,2026-06-09 02:30:00.000000000,235.0,3.9166666666666665,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-19 16:34:07.549456358,2026-08-19 16:33:22.293358088,45.256098,0.7542683,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-19 16:39:09.681445599,2026-08-19 16:33:22.293358088,347.388087,5.78980145,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-19 16:44:12.159183025,2026-08-19 16:33:22.293358088,649.865824,10.831097066666667,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-19 16:49:14.139957905,2026-08-19 16:33:22.293358088,951.846599,15.864109983333332,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-19 17:04:16.252254248,2026-08-19 16:44:17.221652508,1199.030601,19.983843349999997,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-19 17:09:18.405638456,2026-08-19 16:49:19.188783169,1199.216855,19.986947583333333,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-25 10:47:01.451304197,2026-08-25 10:40:18.438782454,403.012521,6.71687535,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-25 10:52:03.638238192,2026-08-25 10:40:18.438782454,705.199455,11.753324249999999,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-25 10:57:05.984620094,2026-08-25 10:40:18.438782454,1007.545837,16.792430616666667,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-25 11:02:07.453095675,2026-08-25 10:42:07.767683506,1199.685412,19.994756866666666,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-25 11:07:10.014968634,2026-08-25 10:47:10.508055924,1199.506912,19.991781866666667,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-25 11:12:11.845124960,2026-08-25 10:52:12.711712599,1199.133412,19.985556866666666,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 05:16:36.826201677,2026-08-26 05:00:26.095383406,970.730818,16.178846966666665,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 05:21:39.492586851,2026-08-26 05:02:08.236069679,1171.256517,19.52094195,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 05:26:41.021783352,2026-08-26 05:15:51.492175817,649.529607,10.825493450000002,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 05:31:42.831943274,2026-08-26 05:15:51.492175817,951.339767,15.855662783333335,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 05:36:45.354738235,2026-08-26 05:16:45.896773815,1199.457964,19.990966066666665,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 05:41:58.057993412,2026-08-26 05:21:58.679224491,1199.378768,19.989646133333334,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 08:36:37.159049034,2026-08-26 08:19:32.045747280,1025.113301,17.085221683333334,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 08:41:39.178109646,2026-08-26 08:35:51.697051287,347.481058,5.791350966666667,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 08:46:41.737770796,2026-08-26 08:35:51.697051287,650.040719,10.834011983333333,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 08:51:42.986938953,2026-08-26 08:35:51.697051287,951.289887,15.85483145,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 08:56:45.599437714,2026-08-26 08:36:46.235972166,1199.363465,19.98939108333333,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 09:01:47.118447065,2026-08-26 08:41:47.260310888,1199.858136,19.997635600000002,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 09:19:17.020771265,2026-08-26 08:59:17.921245098,1199.099526,19.9849921,1,Joint_OR
+Proj_01,srv-proj_01-backend,2026-08-26 09:24:18.800864458,2026-08-26 09:04:19.390252829,1199.410611,19.99017685,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:15.000000000,,0.0,0.0,0,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:00:40.000000000,2026-06-09 03:00:15.000000000,25.0,0.4166666666666667,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:01:55.000000000,2026-06-09 03:00:15.000000000,100.0,1.6666666666666667,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:02:35.000000000,2026-06-09 03:00:15.000000000,140.0,2.3333333333333335,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:00.000000000,2026-06-09 03:00:15.000000000,165.0,2.75,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:45.000000000,2026-06-09 03:00:15.000000000,210.0,3.5,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:03:55.000000000,2026-06-09 03:00:15.000000000,220.0,3.6666666666666665,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:04:35.000000000,2026-06-09 03:00:15.000000000,260.0,4.333333333333333,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-06-09 03:05:00.000000000,2026-06-09 03:00:15.000000000,285.0,4.75,1,Joint_OR
+Proj_02,srv-proj_02-ruby-azure,2026-08-19 17:26:19.664871693,,0.0,0.0,0,Joint_OR
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:30:40.000000000,,0.0,0.0,0,Joint_OR
+Proj_03,srv-proj_03-php-azure,2026-06-09 03:32:40.000000000,2026-06-09 03:30:40.000000000,120.0,2.0,1,Joint_OR
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Joint_OR
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Joint_OR
+Proj_03,srv-proj_03-php-azure,,,0.0,0.0,0,Joint_OR
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Joint_OR
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Joint_OR
+Proj_04,srv-proj_04-go-azure,,,0.0,0.0,0,Joint_OR
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_OR
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_OR
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_OR
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_OR
+Proj_05,srv-proj_05-python-azure,,,0.0,0.0,0,Joint_OR
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_OR
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_OR
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_OR
+Proj_06,srv-proj_06-node-azure,,,0.0,0.0,0,Joint_OR

@@ -1,0 +1,112 @@
+{
+  "mutes": [
+    {
+      "id": "4646e09524",
+      "service": "microservice-08-azure",
+      "reason": "Solved before crash (41m 3s advance lead time remaining)",
+      "actor": "operator",
+      "created_at": "2026-10-18T14:38:49.290853+00:00",
+      "expires_at": "2026-10-18T15:38:49.290853+00:00",
+      "duration_minutes": 60
+    },
+    {
+      "id": "bf6688bd61",
+      "service": "srv-da5tl53m8hqs73ds5urg",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T14:44:53.967847+00:00",
+      "expires_at": "2026-10-18T15:14:53.967847+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "e0e3da3f11",
+      "service": "microservice-12",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T14:50:00.287146+00:00",
+      "expires_at": "2026-10-18T15:20:00.287146+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "bd53383f83",
+      "service": "microservice-11",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T15:05:24.544679+00:00",
+      "expires_at": "2026-10-18T15:35:24.544679+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "0e2c072372",
+      "service": "microservice-06-azure",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T15:07:53.960710+00:00",
+      "expires_at": "2026-10-18T15:37:53.960710+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "e4437a9684",
+      "service": "microservicesset",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T15:10:34.235285+00:00",
+      "expires_at": "2026-10-18T15:40:34.235285+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "d5c8fc6eba",
+      "service": "microservice-12-azure",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T15:16:40.373214+00:00",
+      "expires_at": "2026-10-18T15:46:40.373214+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "81c168b396",
+      "service": "microservice-07-azure",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T15:16:48.113281+00:00",
+      "expires_at": "2026-10-18T15:46:48.113281+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "6d0d6c7978",
+      "service": "srv-da5trtu417fc738m1kk0",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T15:16:51.714236+00:00",
+      "expires_at": "2026-10-18T15:46:51.714236+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "a6570e4cfe",
+      "service": "microservice-04-azure",
+      "reason": "Crashed: lead time expired without mitigation",
+      "actor": "system",
+      "created_at": "2026-10-18T15:19:32.081429+00:00",
+      "expires_at": "2026-10-18T15:49:32.081429+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "b5af085709",
+      "service": "microservice-09",
+      "reason": "False Positive / Known Acceptable Spike",
+      "actor": "operator",
+      "created_at": "2026-10-18T15:53:16.734707+00:00",
+      "expires_at": "2026-10-18T16:23:16.734707+00:00",
+      "duration_minutes": 30
+    },
+    {
+      "id": "4f7e22cd3f",
+      "service": "microservice-03-azure",
+      "reason": "Planned Maintenance / Scheduled Deployment",
+      "actor": "operator",
+      "created_at": "2026-10-18T15:53:25.433339+00:00",
+      "expires_at": "2026-10-18T16:23:25.433339+00:00",
+      "duration_minutes": 30
+    }
+  ]
+}

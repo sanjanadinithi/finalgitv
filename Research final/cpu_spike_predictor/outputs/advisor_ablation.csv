@@ -1,0 +1,6 @@
+stage,F1,FAR,MTTA_min,TTF_MAE_min,ECE,decision_acc,unnecessary_restart,alert_noise
+1. RF + static matrix,0.5662,0.9966,11.47,n/a,0.5722,0.0506,0.0,0.0
+2. + TTF forecaster,0.5662,0.9966,11.47,5.002,0.5722,0.0506,0.0,0.0
+3. + calibration/conformal,0.5662,0.9966,11.47,5.002,0.5724,0.0506,0.0,0.0
+4. + learned cost policy,0.5662,0.9966,11.47,5.002,0.5724,0.5823,0.0001,0.0
+5. + prioritisation/cascade,0.5662,0.9966,11.47,5.002,0.5724,0.5823,0.0001,0.3214
