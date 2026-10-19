@@ -1,0 +1,7 @@
+model,mean_f1,f1_var,mean_prec,mean_rec,mean_auc,train_sec
+Random Forest,0.9775,2.6e-05,1.0,0.956,0.9877,64.4
+Gradient Boosting,0.9767,4.8e-05,0.9969,0.9573,0.9933,50.5
+Decision Tree,0.9588,0.000187,0.9583,0.9603,0.9753,0.6
+Logistic Regression,0.9527,0.000585,0.9526,0.9556,0.9933,0.5
+KNN,0.9206,0.000929,0.9477,0.8991,0.9695,1.2
+XGBoost,0.0,0.0,0.0,0.0,0.0,0.1

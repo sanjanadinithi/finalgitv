@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Sentinel logo-mark: matches .g-logo-mark (white bubble + blue ◤ on sidebar, inverted here for tab) -->
+  <path d="M0,32 A32,32 0 0 1 32,0 A32,32 0 0 1 64,32 A32,32 0 0 1 32,64 L4,64 Q0,64 0,60 Z" fill="#1e9de8"/>
+  <g transform="rotate(-8 32 32)">
+    <text x="32" y="43" font-size="30" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-weight="900" font-family="Arial, sans-serif">◤</text>
+  </g>
+</svg>

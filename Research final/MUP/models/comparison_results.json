@@ -1,0 +1,57 @@
+[
+  {
+    "model": null,
+    "mean_f1": 0.0,
+    "f1_var": 0.0,
+    "mean_prec": 0.0,
+    "mean_rec": 0.0,
+    "mean_auc": 0.0,
+    "train_sec": 0.01,
+    "folds": [],
+    "name": "Random Forest"
+  },
+  {
+    "model": null,
+    "mean_f1": 0.0,
+    "f1_var": 0.0,
+    "mean_prec": 0.0,
+    "mean_rec": 0.0,
+    "mean_auc": 0.0,
+    "train_sec": 0.01,
+    "folds": [],
+    "name": "Decision Tree"
+  },
+  {
+    "model": null,
+    "mean_f1": 0.0,
+    "f1_var": 0.0,
+    "mean_prec": 0.0,
+    "mean_rec": 0.0,
+    "mean_auc": 0.0,
+    "train_sec": 0.01,
+    "folds": [],
+    "name": "KNN"
+  },
+  {
+    "model": null,
+    "mean_f1": 0.0,
+    "f1_var": 0.0,
+    "mean_prec": 0.0,
+    "mean_rec": 0.0,
+    "mean_auc": 0.0,
+    "train_sec": 0.01,
+    "folds": [],
+    "name": "Gradient Boosting"
+  },
+  {
+    "model": null,
+    "mean_f1": 0.0,
+    "f1_var": 0.0,
+    "mean_prec": 0.0,
+    "mean_rec": 0.0,
+    "mean_auc": 0.0,
+    "train_sec": 0.01,
+    "folds": [],
+    "name": "Logistic Regression"
+  }
+]

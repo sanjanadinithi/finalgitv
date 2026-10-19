@@ -1,0 +1,708 @@
+2026-05-10 13:52:19,063  ==============================================================
+2026-05-10 13:52:19,064    Component 3 -- Model Comparison (LOPO x models)
+2026-05-10 13:52:19,064  ==============================================================
+2026-05-10 13:52:19,094    Dataset : 8500 rows | 10 projects
+2026-05-10 13:52:19,095    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-10 13:52:19,096  
+2026-05-10 13:52:47,382      [project_5] Skipped -- only one class in test fold.
+2026-05-10 13:52:57,788    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=38.7s
+2026-05-10 13:53:16,508      [project_5] Skipped -- only one class in test fold.
+2026-05-10 13:53:47,501    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=49.7s
+2026-05-10 13:53:47,754      [project_5] Skipped -- only one class in test fold.
+2026-05-10 13:53:47,944    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.4s
+2026-05-10 13:53:48,133      [project_5] Skipped -- only one class in test fold.
+2026-05-10 13:53:48,282    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.3s
+2026-05-10 13:53:48,909      [project_5] Skipped -- only one class in test fold.
+2026-05-10 13:53:49,242    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=1.0s
+2026-05-10 13:53:49,250      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,259      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,268      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,279      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,287      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,288      [project_5] Skipped -- only one class in test fold.
+2026-05-10 13:53:49,300      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,312      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,321      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,332      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 13:53:49,332    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.1s
+2026-05-10 13:53:49,332  
+2026-05-10 13:53:49,332  ==============================================================
+2026-05-10 13:53:49,332    RANKING (best to worst by F1, then variance)
+2026-05-10 13:53:49,334  ==============================================================
+2026-05-10 13:53:49,334    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-10 13:53:49,334    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-10 13:53:49,334    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-10 13:53:49,334    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-10 13:53:49,334    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-10 13:53:49,334    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-10 13:53:49,334  
+2026-05-10 13:53:49,335    Selected  : Random Forest
+2026-05-10 13:53:49,335    Mean F1   : 0.9775
+2026-05-10 13:53:49,336    F1 Var    : 2.6e-05
+2026-05-10 13:53:49,336  
+2026-05-10 13:53:49,336  ==============================================================
+2026-05-10 13:53:49,336    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-10 13:53:49,336  ==============================================================
+2026-05-10 13:53:49,511    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-10 13:53:49,661    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-10 13:53:49,883    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-10 13:53:50,027    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-10 13:53:50,175    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-10 13:53:50,387    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-10 13:53:50,521    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-10 13:53:50,662    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-10 13:53:50,796    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-10 13:53:50,796  
+2026-05-10 13:53:50,796  SHAP Cross-Fold Consistency
+2026-05-10 13:53:50,796  --------------------------------------------------
+2026-05-10 13:53:50,796    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-10 13:53:50,796    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-10 13:53:50,798    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-10 13:53:50,798    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-10 13:53:50,798    gc_count                       6/9 folds
+2026-05-10 13:53:50,798    heap_mb_used                   1/9 folds
+2026-05-10 13:53:50,798    ram_percent                    1/9 folds
+2026-05-10 13:53:50,798    ram_max                        1/9 folds
+2026-05-10 13:53:50,799    heap_max                       1/9 folds
+2026-05-10 13:53:50,799    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-10 13:53:50,938    Consistency chart saved --> logs/shap_consistency.png
+2026-05-10 13:53:51,156    Comparison chart saved --> logs/model_comparison.png
+2026-05-10 13:53:51,157  
+2026-05-10 13:53:51,157    STAGE 5 -- Training final model on ALL data...
+2026-05-10 13:53:51,767    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-10 13:53:51,767  
+2026-05-10 13:53:51,767  [DONE] Comparison complete.
+2026-05-10 13:53:51,767         Best model  : Random Forest
+2026-05-10 13:53:51,767         Mean F1     : 0.9775
+2026-05-10 13:53:51,767         F1 Variance : 2.6e-05
+2026-05-10 13:53:51,767         Mean AUC    : 0.9877
+2026-05-10 15:42:33,868  ==============================================================
+2026-05-10 15:42:33,868    Component 3 -- Model Comparison (LOPO x models)
+2026-05-10 15:42:33,868  ==============================================================
+2026-05-10 15:42:33,904    Dataset : 8500 rows | 10 projects
+2026-05-10 15:42:33,910    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-10 15:42:33,910  
+2026-05-10 15:43:16,751      [project_5] Skipped -- only one class in test fold.
+2026-05-10 15:43:33,692    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=59.8s
+2026-05-10 15:44:02,352      [project_5] Skipped -- only one class in test fold.
+2026-05-10 15:44:21,907    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=48.2s
+2026-05-10 15:44:22,974      [project_5] Skipped -- only one class in test fold.
+2026-05-10 15:44:23,457    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=1.5s
+2026-05-10 15:44:24,047      [project_5] Skipped -- only one class in test fold.
+2026-05-10 15:44:24,457    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=1.0s
+2026-05-10 15:44:26,334      [project_5] Skipped -- only one class in test fold.
+2026-05-10 15:44:27,281    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=2.8s
+2026-05-10 15:44:27,318      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,347      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,376      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,402      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,427      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,430      [project_5] Skipped -- only one class in test fold.
+2026-05-10 15:44:27,463      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,499      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,536      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,565      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 15:44:27,566    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.3s
+2026-05-10 15:44:27,566  
+2026-05-10 15:44:27,567  ==============================================================
+2026-05-10 15:44:27,568    RANKING (best to worst by F1, then variance)
+2026-05-10 15:44:27,569  ==============================================================
+2026-05-10 15:44:27,569    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-10 15:44:27,570    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-10 15:44:27,570    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-10 15:44:27,570    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-10 15:44:27,571    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-10 15:44:27,573    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-10 15:44:27,574  
+2026-05-10 15:44:27,574    Selected  : Random Forest
+2026-05-10 15:44:27,576    Mean F1   : 0.9775
+2026-05-10 15:44:27,577    F1 Var    : 2.6e-05
+2026-05-10 15:44:27,577  
+2026-05-10 15:44:27,578  ==============================================================
+2026-05-10 15:44:27,579    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-10 15:44:27,580  ==============================================================
+2026-05-10 15:44:27,877    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-10 15:44:27,998    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-10 15:44:28,111    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-10 15:44:28,231    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-10 15:44:28,341    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-10 15:44:28,450    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-10 15:44:28,563    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-10 15:44:28,770    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-10 15:44:28,884    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-10 15:44:28,884  
+2026-05-10 15:44:28,884  SHAP Cross-Fold Consistency
+2026-05-10 15:44:28,884  --------------------------------------------------
+2026-05-10 15:44:28,885    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-10 15:44:28,885    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-10 15:44:28,885    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-10 15:44:28,885    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-10 15:44:28,885    gc_count                       6/9 folds
+2026-05-10 15:44:28,885    heap_mb_used                   1/9 folds
+2026-05-10 15:44:28,885    ram_percent                    1/9 folds
+2026-05-10 15:44:28,885    ram_max                        1/9 folds
+2026-05-10 15:44:28,885    heap_max                       1/9 folds
+2026-05-10 15:44:28,885    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-10 15:44:28,975    Consistency chart saved --> logs/shap_consistency.png
+2026-05-10 15:44:29,137    Comparison chart saved --> logs/model_comparison.png
+2026-05-10 15:44:29,138  
+2026-05-10 15:44:29,138    STAGE 5 -- Training final model on ALL data...
+2026-05-10 15:44:29,589    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-10 15:44:29,590  
+2026-05-10 15:44:29,590  [DONE] Comparison complete.
+2026-05-10 15:44:29,590         Best model  : Random Forest
+2026-05-10 15:44:29,590         Mean F1     : 0.9775
+2026-05-10 15:44:29,590         F1 Variance : 2.6e-05
+2026-05-10 15:44:29,590         Mean AUC    : 0.9877
+2026-05-10 17:55:04,315  ==============================================================
+2026-05-10 17:55:04,316    Component 3 -- Model Comparison (LOPO x models)
+2026-05-10 17:55:04,316  ==============================================================
+2026-05-10 17:55:04,434    Dataset : 8500 rows | 10 projects
+2026-05-10 17:55:04,441    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-10 17:55:04,442  
+2026-05-10 17:55:58,689      [project_5] Skipped -- only one class in test fold.
+2026-05-10 17:56:12,969    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=68.5s
+2026-05-10 17:56:34,289      [project_5] Skipped -- only one class in test fold.
+2026-05-10 17:56:51,675    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=38.7s
+2026-05-10 17:56:52,098      [project_5] Skipped -- only one class in test fold.
+2026-05-10 17:56:52,343    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.7s
+2026-05-10 17:56:52,654      [project_5] Skipped -- only one class in test fold.
+2026-05-10 17:56:52,881    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.5s
+2026-05-10 17:56:53,750      [project_5] Skipped -- only one class in test fold.
+2026-05-10 17:56:54,173    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=1.3s
+2026-05-10 17:56:54,301      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,319      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,337      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,350      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,359      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,360      [project_5] Skipped -- only one class in test fold.
+2026-05-10 17:56:54,371      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,383      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,393      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,405      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 17:56:54,406    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.2s
+2026-05-10 17:56:54,407  
+2026-05-10 17:56:54,407  ==============================================================
+2026-05-10 17:56:54,407    RANKING (best to worst by F1, then variance)
+2026-05-10 17:56:54,408  ==============================================================
+2026-05-10 17:56:54,408    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-10 17:56:54,408    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-10 17:56:54,409    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-10 17:56:54,409    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-10 17:56:54,409    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-10 17:56:54,409    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-10 17:56:54,409  
+2026-05-10 17:56:54,411    Selected  : Random Forest
+2026-05-10 17:56:54,411    Mean F1   : 0.9775
+2026-05-10 17:56:54,412    F1 Var    : 2.6e-05
+2026-05-10 17:56:54,412  
+2026-05-10 17:56:54,412  ==============================================================
+2026-05-10 17:56:54,413    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-10 17:56:54,413  ==============================================================
+2026-05-10 17:56:54,666    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-10 17:56:54,854    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-10 17:56:55,064    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-10 17:56:55,257    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-10 17:56:55,445    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-10 17:56:55,635    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-10 17:56:56,003    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-10 17:56:56,215    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-10 17:56:56,398    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-10 17:56:56,399  
+2026-05-10 17:56:56,399  SHAP Cross-Fold Consistency
+2026-05-10 17:56:56,399  --------------------------------------------------
+2026-05-10 17:56:56,399    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-10 17:56:56,399    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-10 17:56:56,399    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-10 17:56:56,401    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-10 17:56:56,401    gc_count                       6/9 folds
+2026-05-10 17:56:56,401    heap_mb_used                   1/9 folds
+2026-05-10 17:56:56,402    ram_percent                    1/9 folds
+2026-05-10 17:56:56,402    ram_max                        1/9 folds
+2026-05-10 17:56:56,402    heap_max                       1/9 folds
+2026-05-10 17:56:56,402    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-10 17:56:56,551    Consistency chart saved --> logs/shap_consistency.png
+2026-05-10 17:56:56,818    Comparison chart saved --> logs/model_comparison.png
+2026-05-10 17:56:56,819  
+2026-05-10 17:56:56,819    STAGE 5 -- Training final model on ALL data...
+2026-05-10 17:56:57,495    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-10 17:56:57,495  
+2026-05-10 17:56:57,495  [DONE] Comparison complete.
+2026-05-10 17:56:57,495         Best model  : Random Forest
+2026-05-10 17:56:57,495         Mean F1     : 0.9775
+2026-05-10 17:56:57,496         F1 Variance : 2.6e-05
+2026-05-10 17:56:57,496         Mean AUC    : 0.9877
+2026-05-10 18:00:12,532  ==============================================================
+2026-05-10 18:00:12,533    Component 3 -- Model Comparison (LOPO x models)
+2026-05-10 18:00:12,533  ==============================================================
+2026-05-10 18:00:12,570    Dataset : 8500 rows | 10 projects
+2026-05-10 18:00:12,571    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-10 18:00:12,571  
+2026-05-10 18:00:48,242      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:01:02,803    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=50.2s
+2026-05-10 18:01:22,709      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:01:38,517    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=35.7s
+2026-05-10 18:01:38,877      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:01:39,115    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.6s
+2026-05-10 18:01:39,379      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:01:39,536    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.4s
+2026-05-10 18:01:40,265      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:01:40,704    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=1.2s
+2026-05-10 18:01:40,716      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,728      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,743      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,755      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,764      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,765      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:01:40,778      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,790      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,799      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,811      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:01:40,812    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.1s
+2026-05-10 18:01:40,812  
+2026-05-10 18:01:40,812  ==============================================================
+2026-05-10 18:01:40,813    RANKING (best to worst by F1, then variance)
+2026-05-10 18:01:40,813  ==============================================================
+2026-05-10 18:01:40,813    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-10 18:01:40,814    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-10 18:01:40,814    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-10 18:01:40,814    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-10 18:01:40,815    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-10 18:01:40,815    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-10 18:01:40,815  
+2026-05-10 18:01:40,816    Selected  : Random Forest
+2026-05-10 18:01:40,816    Mean F1   : 0.9775
+2026-05-10 18:01:40,817    F1 Var    : 2.6e-05
+2026-05-10 18:01:40,817  
+2026-05-10 18:01:40,817  ==============================================================
+2026-05-10 18:01:40,818    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-10 18:01:40,818  ==============================================================
+2026-05-10 18:01:41,034    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-10 18:01:41,219    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-10 18:01:41,401    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-10 18:01:41,580    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-10 18:01:41,755    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-10 18:01:41,915    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-10 18:01:42,078    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-10 18:01:42,383    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-10 18:01:42,548    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-10 18:01:42,548  
+2026-05-10 18:01:42,549  SHAP Cross-Fold Consistency
+2026-05-10 18:01:42,549  --------------------------------------------------
+2026-05-10 18:01:42,549    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-10 18:01:42,549    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-10 18:01:42,550    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-10 18:01:42,550    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-10 18:01:42,550    gc_count                       6/9 folds
+2026-05-10 18:01:42,550    heap_mb_used                   1/9 folds
+2026-05-10 18:01:42,550    ram_percent                    1/9 folds
+2026-05-10 18:01:42,550    ram_max                        1/9 folds
+2026-05-10 18:01:42,552    heap_max                       1/9 folds
+2026-05-10 18:01:42,552    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-10 18:01:42,695    Consistency chart saved --> logs/shap_consistency.png
+2026-05-10 18:01:42,942    Comparison chart saved --> logs/model_comparison.png
+2026-05-10 18:01:42,942  
+2026-05-10 18:01:42,942    STAGE 5 -- Training final model on ALL data...
+2026-05-10 18:01:43,595    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-10 18:01:43,596  
+2026-05-10 18:01:43,596  [DONE] Comparison complete.
+2026-05-10 18:01:43,596         Best model  : Random Forest
+2026-05-10 18:01:43,596         Mean F1     : 0.9775
+2026-05-10 18:01:43,597         F1 Variance : 2.6e-05
+2026-05-10 18:01:43,597         Mean AUC    : 0.9877
+2026-05-10 18:02:52,247  ==============================================================
+2026-05-10 18:02:52,247    Component 3 -- Model Comparison (LOPO x models)
+2026-05-10 18:02:52,247  ==============================================================
+2026-05-10 18:02:52,289    Dataset : 8500 rows | 10 projects
+2026-05-10 18:02:52,290    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-10 18:02:52,292  
+2026-05-10 18:03:25,115      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:03:38,272    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=46.0s
+2026-05-10 18:03:58,312      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:04:14,210    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=35.9s
+2026-05-10 18:04:14,554      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:04:14,788    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.6s
+2026-05-10 18:04:15,072      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:04:15,288    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.5s
+2026-05-10 18:04:16,153      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:04:16,555    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=1.3s
+2026-05-10 18:04:16,565      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,576      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,589      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,601      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,611      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,612      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:04:16,621      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,634      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,645      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,657      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:04:16,658    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.1s
+2026-05-10 18:04:16,658  
+2026-05-10 18:04:16,658  ==============================================================
+2026-05-10 18:04:16,658    RANKING (best to worst by F1, then variance)
+2026-05-10 18:04:16,659  ==============================================================
+2026-05-10 18:04:16,659    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-10 18:04:16,659    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-10 18:04:16,659    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-10 18:04:16,660    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-10 18:04:16,660    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-10 18:04:16,660    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-10 18:04:16,660  
+2026-05-10 18:04:16,660    Selected  : Random Forest
+2026-05-10 18:04:16,660    Mean F1   : 0.9775
+2026-05-10 18:04:16,661    F1 Var    : 2.6e-05
+2026-05-10 18:04:16,661  
+2026-05-10 18:04:16,661  ==============================================================
+2026-05-10 18:04:16,661    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-10 18:04:16,661  ==============================================================
+2026-05-10 18:04:16,850    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-10 18:04:17,017    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-10 18:04:17,184    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-10 18:04:17,345    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-10 18:04:17,513    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-10 18:04:17,687    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-10 18:04:17,942    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-10 18:04:18,129    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-10 18:04:18,302    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-10 18:04:18,303  
+2026-05-10 18:04:18,303  SHAP Cross-Fold Consistency
+2026-05-10 18:04:18,303  --------------------------------------------------
+2026-05-10 18:04:18,303    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-10 18:04:18,303    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-10 18:04:18,303    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-10 18:04:18,304    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-10 18:04:18,304    gc_count                       6/9 folds
+2026-05-10 18:04:18,304    heap_mb_used                   1/9 folds
+2026-05-10 18:04:18,305    ram_percent                    1/9 folds
+2026-05-10 18:04:18,305    ram_max                        1/9 folds
+2026-05-10 18:04:18,305    heap_max                       1/9 folds
+2026-05-10 18:04:18,305    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-10 18:04:18,460    Consistency chart saved --> logs/shap_consistency.png
+2026-05-10 18:04:18,742    Comparison chart saved --> logs/model_comparison.png
+2026-05-10 18:04:18,742  
+2026-05-10 18:04:18,742    STAGE 5 -- Training final model on ALL data...
+2026-05-10 18:04:19,372    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-10 18:04:19,373  
+2026-05-10 18:04:19,373  [DONE] Comparison complete.
+2026-05-10 18:04:19,373         Best model  : Random Forest
+2026-05-10 18:04:19,373         Mean F1     : 0.9775
+2026-05-10 18:04:19,373         F1 Variance : 2.6e-05
+2026-05-10 18:04:19,373         Mean AUC    : 0.9877
+2026-05-10 18:07:11,010  ==============================================================
+2026-05-10 18:07:11,010    Component 3 -- Model Comparison (LOPO x models)
+2026-05-10 18:07:11,011  ==============================================================
+2026-05-10 18:07:11,050    Dataset : 8500 rows | 10 projects
+2026-05-10 18:07:11,053    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-10 18:07:11,053  
+2026-05-10 18:07:43,503      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:07:56,561    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=45.5s
+2026-05-10 18:08:16,628      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:08:32,655    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=36.1s
+2026-05-10 18:08:32,995      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:08:33,240    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.6s
+2026-05-10 18:08:33,480      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:08:33,655    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.4s
+2026-05-10 18:08:34,417      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:08:34,768    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=1.1s
+2026-05-10 18:08:34,779      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,788      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,798      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,810      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,834      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,836      [project_5] Skipped -- only one class in test fold.
+2026-05-10 18:08:34,865      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,886      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,897      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,917      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 18:08:34,917    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.1s
+2026-05-10 18:08:34,919  
+2026-05-10 18:08:34,919  ==============================================================
+2026-05-10 18:08:34,919    RANKING (best to worst by F1, then variance)
+2026-05-10 18:08:34,920  ==============================================================
+2026-05-10 18:08:34,920    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-10 18:08:34,921    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-10 18:08:34,921    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-10 18:08:34,921    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-10 18:08:34,922    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-10 18:08:34,922    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-10 18:08:34,922  
+2026-05-10 18:08:34,922    Selected  : Random Forest
+2026-05-10 18:08:34,922    Mean F1   : 0.9775
+2026-05-10 18:08:34,924    F1 Var    : 2.6e-05
+2026-05-10 18:08:34,924  
+2026-05-10 18:08:34,924  ==============================================================
+2026-05-10 18:08:34,925    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-10 18:08:34,925  ==============================================================
+2026-05-10 18:08:35,109    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-10 18:08:35,282    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-10 18:08:35,451    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-10 18:08:35,605    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-10 18:08:35,742    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-10 18:08:35,894    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-10 18:08:36,121    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-10 18:08:36,272    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-10 18:08:36,416    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-10 18:08:36,416  
+2026-05-10 18:08:36,418  SHAP Cross-Fold Consistency
+2026-05-10 18:08:36,418  --------------------------------------------------
+2026-05-10 18:08:36,418    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-10 18:08:36,418    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-10 18:08:36,419    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-10 18:08:36,419    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-10 18:08:36,420    gc_count                       6/9 folds
+2026-05-10 18:08:36,420    heap_mb_used                   1/9 folds
+2026-05-10 18:08:36,420    ram_percent                    1/9 folds
+2026-05-10 18:08:36,420    ram_max                        1/9 folds
+2026-05-10 18:08:36,420    heap_max                       1/9 folds
+2026-05-10 18:08:36,421    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-10 18:08:36,557    Consistency chart saved --> logs/shap_consistency.png
+2026-05-10 18:08:36,775    Comparison chart saved --> logs/model_comparison.png
+2026-05-10 18:08:36,775  
+2026-05-10 18:08:36,776    STAGE 5 -- Training final model on ALL data...
+2026-05-10 18:08:37,405    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-10 18:08:37,405  
+2026-05-10 18:08:37,405  [DONE] Comparison complete.
+2026-05-10 18:08:37,405         Best model  : Random Forest
+2026-05-10 18:08:37,405         Mean F1     : 0.9775
+2026-05-10 18:08:37,405         F1 Variance : 2.6e-05
+2026-05-10 18:08:37,406         Mean AUC    : 0.9877
+2026-05-10 21:00:57,165  ==============================================================
+2026-05-10 21:00:57,166    Component 3 -- Model Comparison (LOPO x models)
+2026-05-10 21:00:57,166  ==============================================================
+2026-05-10 21:00:57,363    Dataset : 8500 rows | 10 projects
+2026-05-10 21:00:57,374    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-10 21:00:57,374  
+2026-05-10 21:02:04,830      [project_5] Skipped -- only one class in test fold.
+2026-05-10 21:02:51,066    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=113.7s
+2026-05-10 21:03:39,001      [project_5] Skipped -- only one class in test fold.
+2026-05-10 21:04:15,413    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=84.3s
+2026-05-10 21:04:15,895      [project_5] Skipped -- only one class in test fold.
+2026-05-10 21:04:16,226    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.8s
+2026-05-10 21:04:16,629      [project_5] Skipped -- only one class in test fold.
+2026-05-10 21:04:16,899    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.7s
+2026-05-10 21:04:18,534      [project_5] Skipped -- only one class in test fold.
+2026-05-10 21:04:19,025    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=2.1s
+2026-05-10 21:04:19,066      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,084      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,104      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,117      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,128      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,130      [project_5] Skipped -- only one class in test fold.
+2026-05-10 21:04:19,143      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,157      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,172      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,186      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-10 21:04:19,186    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.2s
+2026-05-10 21:04:19,187  
+2026-05-10 21:04:19,187  ==============================================================
+2026-05-10 21:04:19,187    RANKING (best to worst by F1, then variance)
+2026-05-10 21:04:19,188  ==============================================================
+2026-05-10 21:04:19,188    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-10 21:04:19,188    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-10 21:04:19,188    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-10 21:04:19,189    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-10 21:04:19,189    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-10 21:04:19,189    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-10 21:04:19,189  
+2026-05-10 21:04:19,190    Selected  : Random Forest
+2026-05-10 21:04:19,190    Mean F1   : 0.9775
+2026-05-10 21:04:19,191    F1 Var    : 2.6e-05
+2026-05-10 21:04:19,191  
+2026-05-10 21:04:19,191  ==============================================================
+2026-05-10 21:04:19,191    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-10 21:04:19,191  ==============================================================
+2026-05-10 21:04:19,590    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-10 21:04:19,814    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-10 21:04:20,053    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-10 21:04:20,272    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-10 21:04:20,534    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-10 21:04:20,765    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-10 21:04:20,992    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-10 21:04:21,280    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-10 21:04:21,597    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-10 21:04:21,598  
+2026-05-10 21:04:21,598  SHAP Cross-Fold Consistency
+2026-05-10 21:04:21,598  --------------------------------------------------
+2026-05-10 21:04:21,598    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-10 21:04:21,599    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-10 21:04:21,599    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-10 21:04:21,599    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-10 21:04:21,600    gc_count                       6/9 folds
+2026-05-10 21:04:21,600    heap_mb_used                   1/9 folds
+2026-05-10 21:04:21,600    ram_percent                    1/9 folds
+2026-05-10 21:04:21,601    ram_max                        1/9 folds
+2026-05-10 21:04:21,601    heap_max                       1/9 folds
+2026-05-10 21:04:21,601    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-10 21:04:21,772    Consistency chart saved --> logs/shap_consistency.png
+2026-05-10 21:04:22,088    Comparison chart saved --> logs/model_comparison.png
+2026-05-10 21:04:22,088  
+2026-05-10 21:04:22,088    STAGE 5 -- Training final model on ALL data...
+2026-05-10 21:04:22,951    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-10 21:04:22,951  
+2026-05-10 21:04:22,951  [DONE] Comparison complete.
+2026-05-10 21:04:22,952         Best model  : Random Forest
+2026-05-10 21:04:22,952         Mean F1     : 0.9775
+2026-05-10 21:04:22,952         F1 Variance : 2.6e-05
+2026-05-10 21:04:22,952         Mean AUC    : 0.9877
+2026-05-11 08:02:23,227  ==============================================================
+2026-05-11 08:02:23,228    Component 3 -- Model Comparison (LOPO x models)
+2026-05-11 08:02:23,228  ==============================================================
+2026-05-11 08:02:23,380    Dataset : 8500 rows | 10 projects
+2026-05-11 08:02:23,387    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-11 08:02:23,388  
+2026-05-11 08:02:57,852      [project_5] Skipped -- only one class in test fold.
+2026-05-11 08:02:59,671  ==============================================================
+2026-05-11 08:02:59,671    Component 3 -- Model Comparison (LOPO x models)
+2026-05-11 08:02:59,671  ==============================================================
+2026-05-11 08:02:59,728    Dataset : 8500 rows | 10 projects
+2026-05-11 08:02:59,730    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-05-11 08:02:59,731  
+2026-05-11 08:03:13,048    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=49.7s
+2026-05-11 08:03:56,759      [project_5] Skipped -- only one class in test fold.
+2026-05-11 08:04:28,797    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=75.7s
+2026-05-11 08:04:29,207      [project_5] Skipped -- only one class in test fold.
+2026-05-11 08:04:29,453    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.7s
+2026-05-11 08:04:29,809      [project_5] Skipped -- only one class in test fold.
+2026-05-11 08:04:30,024    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.6s
+2026-05-11 08:04:30,735      [project_5] Skipped -- only one class in test fold.
+2026-05-11 08:04:31,172    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=1.1s
+2026-05-11 08:04:31,190      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,201      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,215      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,226      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,235      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,237      [project_5] Skipped -- only one class in test fold.
+2026-05-11 08:04:31,248      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,260      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,272      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,283      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-05-11 08:04:31,283    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.1s
+2026-05-11 08:04:31,283  
+2026-05-11 08:04:31,284  ==============================================================
+2026-05-11 08:04:31,285    RANKING (best to worst by F1, then variance)
+2026-05-11 08:04:31,285  ==============================================================
+2026-05-11 08:04:31,285    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-05-11 08:04:31,286    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-05-11 08:04:31,286    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-05-11 08:04:31,287    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-05-11 08:04:31,287    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-05-11 08:04:31,288    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-05-11 08:04:31,288  
+2026-05-11 08:04:31,288    Selected  : Random Forest
+2026-05-11 08:04:31,288    Mean F1   : 0.9775
+2026-05-11 08:04:31,288    F1 Var    : 2.6e-05
+2026-05-11 08:04:31,289  
+2026-05-11 08:04:31,289  ==============================================================
+2026-05-11 08:04:31,289    STAGE 4 -- SHAP Analysis (best model folds)
+2026-05-11 08:04:31,289  ==============================================================
+2026-05-11 08:04:31,961    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-05-11 08:04:32,119    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-05-11 08:04:32,284    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-05-11 08:04:32,437    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-05-11 08:04:32,587    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-05-11 08:04:32,757    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-05-11 08:04:33,063    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-05-11 08:04:33,264    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-05-11 08:04:33,477    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-05-11 08:04:33,477  
+2026-05-11 08:04:33,477  SHAP Cross-Fold Consistency
+2026-05-11 08:04:33,478  --------------------------------------------------
+2026-05-11 08:04:33,478    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-05-11 08:04:33,478    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-05-11 08:04:33,478    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-05-11 08:04:33,478    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-05-11 08:04:33,478    gc_count                       6/9 folds
+2026-05-11 08:04:33,479    heap_mb_used                   1/9 folds
+2026-05-11 08:04:33,479    ram_percent                    1/9 folds
+2026-05-11 08:04:33,479    ram_max                        1/9 folds
+2026-05-11 08:04:33,479    heap_max                       1/9 folds
+2026-05-11 08:04:33,480    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-05-11 08:04:33,650    Consistency chart saved --> logs/shap_consistency.png
+2026-05-11 08:04:34,040    Comparison chart saved --> logs/model_comparison.png
+2026-05-11 08:04:34,040  
+2026-05-11 08:04:34,040    STAGE 5 -- Training final model on ALL data...
+2026-05-11 08:04:35,141    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-05-11 08:04:35,142  
+2026-05-11 08:04:35,142  [DONE] Comparison complete.
+2026-05-11 08:04:35,142         Best model  : Random Forest
+2026-05-11 08:04:35,142         Mean F1     : 0.9775
+2026-05-11 08:04:35,143         F1 Variance : 2.6e-05
+2026-05-11 08:04:35,143         Mean AUC    : 0.9877
+2026-07-01 08:06:35,513  ==============================================================
+2026-07-01 08:06:35,514    Component 3 -- Model Comparison (LOPO x models)
+2026-07-01 08:06:35,514  ==============================================================
+2026-07-01 08:06:35,687    Dataset : 8500 rows | 10 projects
+2026-07-01 08:06:35,693    Labels  : {'NORMAL': np.int64(6082), 'FAILURE': np.int64(2418)}
+2026-07-01 08:06:35,693  
+2026-07-01 08:07:19,249      [project_5] Skipped -- only one class in test fold.
+2026-07-01 08:07:40,047    Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877 | Time=64.4s
+2026-07-01 08:08:10,345      [project_5] Skipped -- only one class in test fold.
+2026-07-01 08:08:30,572    Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933 | Time=50.5s
+2026-07-01 08:08:30,966      [project_5] Skipped -- only one class in test fold.
+2026-07-01 08:08:31,209    Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753 | Time=0.6s
+2026-07-01 08:08:31,483      [project_5] Skipped -- only one class in test fold.
+2026-07-01 08:08:31,679    Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933 | Time=0.5s
+2026-07-01 08:08:32,473      [project_5] Skipped -- only one class in test fold.
+2026-07-01 08:08:32,869    KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695 | Time=1.2s
+2026-07-01 08:08:32,886      [project_1] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,902      [project_10] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,915      [project_2] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,928      [project_3] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,937      [project_4] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,940      [project_5] Skipped -- only one class in test fold.
+2026-07-01 08:08:32,956      [project_6] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,968      [project_7] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,978      [project_8] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,989      [project_9] Error: Invalid classes inferred from unique values of `y`.  Expected: [0 1], got ['FAILURE' 'NORMAL']
+2026-07-01 08:08:32,990    XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000 | Time=0.1s
+2026-07-01 08:08:32,991  
+2026-07-01 08:08:32,991  ==============================================================
+2026-07-01 08:08:32,991    RANKING (best to worst by F1, then variance)
+2026-07-01 08:08:32,991  ==============================================================
+2026-07-01 08:08:32,992    #1 Random Forest          | F1=0.9775 | Var=0.000026 | AUC=0.9877  <-- BEST
+2026-07-01 08:08:32,992    #2 Gradient Boosting      | F1=0.9767 | Var=0.000048 | AUC=0.9933
+2026-07-01 08:08:32,992    #3 Decision Tree          | F1=0.9588 | Var=0.000187 | AUC=0.9753
+2026-07-01 08:08:32,992    #4 Logistic Regression    | F1=0.9527 | Var=0.000585 | AUC=0.9933
+2026-07-01 08:08:32,992    #5 KNN                    | F1=0.9206 | Var=0.000929 | AUC=0.9695
+2026-07-01 08:08:32,993    #6 XGBoost                | F1=0.0000 | Var=0.000000 | AUC=0.0000
+2026-07-01 08:08:32,993  
+2026-07-01 08:08:32,993    Selected  : Random Forest
+2026-07-01 08:08:32,993    Mean F1   : 0.9775
+2026-07-01 08:08:32,993    F1 Var    : 2.6e-05
+2026-07-01 08:08:32,994  
+2026-07-01 08:08:32,994  ==============================================================
+2026-07-01 08:08:32,994    STAGE 4 -- SHAP Analysis (best model folds)
+2026-07-01 08:08:32,994  ==============================================================
+2026-07-01 08:08:33,313    SHAP chart saved --> logs/shap_fold_project_1.png
+2026-07-01 08:08:33,525    SHAP chart saved --> logs/shap_fold_project_10.png
+2026-07-01 08:08:33,708    SHAP chart saved --> logs/shap_fold_project_2.png
+2026-07-01 08:08:33,900    SHAP chart saved --> logs/shap_fold_project_3.png
+2026-07-01 08:08:34,062    SHAP chart saved --> logs/shap_fold_project_4.png
+2026-07-01 08:08:34,218    SHAP chart saved --> logs/shap_fold_project_6.png
+2026-07-01 08:08:34,371    SHAP chart saved --> logs/shap_fold_project_7.png
+2026-07-01 08:08:34,611    SHAP chart saved --> logs/shap_fold_project_8.png
+2026-07-01 08:08:34,766    SHAP chart saved --> logs/shap_fold_project_9.png
+2026-07-01 08:08:34,766  
+2026-07-01 08:08:34,767  SHAP Cross-Fold Consistency
+2026-07-01 08:08:34,767  --------------------------------------------------
+2026-07-01 08:08:34,767    ram_std_trend                  9/9 folds  <-- UNIVERSAL
+2026-07-01 08:08:34,767    incident_phase_1               9/9 folds  <-- UNIVERSAL
+2026-07-01 08:08:34,768    incident_phase_2               9/9 folds  <-- UNIVERSAL
+2026-07-01 08:08:34,768    gc_spike_count                 8/9 folds  <-- UNIVERSAL
+2026-07-01 08:08:34,768    gc_count                       6/9 folds
+2026-07-01 08:08:34,768    heap_mb_used                   1/9 folds
+2026-07-01 08:08:34,769    ram_percent                    1/9 folds
+2026-07-01 08:08:34,769    ram_max                        1/9 folds
+2026-07-01 08:08:34,769    heap_max                       1/9 folds
+2026-07-01 08:08:34,769    Universal features (>= 7/9): ['ram_std_trend', 'incident_phase_1', 'incident_phase_2', 'gc_spike_count']
+2026-07-01 08:08:34,910    Consistency chart saved --> logs/shap_consistency.png
+2026-07-01 08:08:35,177    Comparison chart saved --> logs/model_comparison.png
+2026-07-01 08:08:35,177  
+2026-07-01 08:08:35,177    STAGE 5 -- Training final model on ALL data...
+2026-07-01 08:08:35,947    memory_predictions.csv saved --> data/memory_predictions.csv
+2026-07-01 08:08:35,948  
+2026-07-01 08:08:35,948  [DONE] Comparison complete.
+2026-07-01 08:08:35,948         Best model  : Random Forest
+2026-07-01 08:08:35,948         Mean F1     : 0.9775
+2026-07-01 08:08:35,948         F1 Variance : 2.6e-05
+2026-07-01 08:08:35,949         Mean AUC    : 0.9877

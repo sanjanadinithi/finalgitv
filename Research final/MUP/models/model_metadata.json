@@ -1,0 +1,42 @@
+{
+  "best_model": "Random Forest",
+  "mean_f1": 0.8827,
+  "f1_variance": 0.05046,
+  "mean_auc": 0.9161,
+  "alarm_threshold": 0.69,
+  "features": [
+    "memory_change_10min",
+    "memory_change_5min",
+    "heap_rate",
+    "gc_spike_count",
+    "ram_mean",
+    "ram_max",
+    "ram_std",
+    "ram_std_trend",
+    "heap_max",
+    "gc_count",
+    "ram_percent",
+    "heap_mb_used",
+    "incident_phase_1",
+    "incident_phase_2",
+    "heap_fill_ratio",
+    "memory_acceleration",
+    "gc_efficiency",
+    "ram_std_ratio",
+    "memory_growth_velocity",
+    "time_to_oom_slope",
+    "gc_pressure_index",
+    "ram_leak_momentum"
+  ],
+  "shap_consistency": {
+    "incident_phase_2": 5,
+    "incident_phase_1": 5,
+    "heap_max": 5,
+    "heap_mb_used": 4,
+    "gc_count": 2,
+    "gc_pressure_index": 2,
+    "heap_fill_ratio": 2
+  },
+  "rows_trained": 55551,
+  "projects": 5
+}
